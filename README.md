@@ -1,7 +1,7 @@
 # PlayPal
 Eine Webseite für Lernspiele.
-## Wireframe
-Link;
+### Wireframe
+Link: 
 ## Aufbau
 ### Spielbeitritt via PIN
 Eingabe einer Spielepin und Spielername

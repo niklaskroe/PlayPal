@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>test</p>
+    <header>
+        <nav>
+            <button hx-get="/pages/entry.html" hx-target="#content" hx-swap="innerHTML">Entry</button>
+            <button hx-get="/pages/avatar.html" hx-target="#content" hx-swap="innerHTML">Avatar</button>
+            <button hx-get="/pages/team.html" hx-target="#content" hx-swap="innerHTML">Team</button>
+        </nav>
+    </header>
+
+    <main id="content">
+        <p>PlayPal</p>
+    </main>
+
+    <footer>
+        <p>&copy; PlayPal</p>
+    </footer>
 </body>
 </html>

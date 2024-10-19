@@ -1,7 +1,7 @@
 # PlayPal
 Eine Webseite für Lernspiele.
-### Wireframe
-Link: 
+### Design
+Link: https://www.figma.com/design/BVmxw33m6bceDtoW0S0Qr1/PlayPal?node-id=12-9&t=04hiWuD4Aqtm6UCL-1
 ## Aufbau
 ### Spielbeitritt via PIN
 Eingabe einer Spielepin und Spielername

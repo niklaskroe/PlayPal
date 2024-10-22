@@ -8,19 +8,32 @@
 </head>
 <body>
     <header>
+        <a href="index.html">
+            <img src="/images/logo.png" alt="PlayPal Logo" class="logo_icon">
+        </a>
+        
+        <h1 class="title">PlayPal</h1>
+
         <nav>
-            <button hx-get="/pages/entry.html" hx-target="#content" hx-swap="innerHTML">Entry</button>
-            <button hx-get="/pages/avatar.html" hx-target="#content" hx-swap="innerHTML">Avatar</button>
-            <button hx-get="/pages/team.html" hx-target="#content" hx-swap="innerHTML">Team</button>
+            <ul>
+                <li>
+                    <a hx-get="/pages/entry.html" hx-target="#content" hx-swap="innerHTML">Join a Game</a>
+                </li>
+                <li>
+                    <a hx-get="/pages/avatar.html" hx-target="#content" hx-swap="innerHTML">Avatar</a>
+                </li>
+                <li>
+                    <a hx-get="/pages/team.html" hx-target="#content" hx-swap="innerHTML">Team</a>
+                </li>
+            </ul>
         </nav>
     </header>
 
-    <main id="content">
-        <p>PlayPal</p>
-    </main>
+    <main id="content"></main>
 
     <footer>
         <p>&copy; PlayPal</p>
+        <a href="https://paypal.com" target="_blank">Support us!</a>
     </footer>
 </body>
 </html>

@@ -132,3 +132,67 @@ main {
 }
 
 /* Team */
+
+.teamBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.teamContainer {
+    background-color: white;
+    padding: 1em;
+    margin: 10em;
+    border-radius: 1em;
+    display: inline-block;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.teamSelection {
+    background-color: white;
+    box-shadow: inset 0 0 5px black;
+    padding: 1em;
+    margin-top: 1em;
+    border-radius: 1em;
+    width: 100%;
+
+    /* scrollable */
+    height: 40em;
+    max-width: 100%;
+    overflow-y: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.team {
+    flex: 100%;
+    margin: 0.5em;
+    background-color: #fff;
+    box-shadow: 0 0 5px black;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.players {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.avatar {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}

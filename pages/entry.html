@@ -1,1 +1,43 @@
-<h1>Entry</h1>
+
+<!--
+ecken abrunden 
+outlines weg
+inputsBox-> Shadow und inset
+größer 
+-->
+<body class="entryBody">
+    <div class="entryContainer">
+        <div>
+            <input class="entryItems"
+                style="text-align: center;"
+                required 
+                type="text" 
+                minlength="3"
+                maxlength="12"
+                name="player" 
+                placeholder="Name" > </input>
+        </div>
+        <div>
+            <input class="entryItems"
+                style="text-align: center;"
+                required 
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
+                type="text" 
+                inputmode="numeric" 
+                pattern="[0-9]" 
+                minlength="6"
+                maxlength="6"
+                name="pin" 
+                placeholder="Game-Pin" >
+        </input>
+        </div>
+        <div>
+            <button class="entryButton">
+                <a hx-get="/pages/avatar/avatar.html" hx-target="#content" hx-swap="innerHTML">Join</a> <!--if-Abfrage?-->
+            </button>
+        </div>
+    </div>
+
+
+</body>
+

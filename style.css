@@ -191,8 +191,19 @@ main {
     margin-top: 10px;
 }
 
+.player {
+    display: flex;
+    align-items: center;
+}
+
+.playerName {
+    margin-left: 0.5em;
+    font-size: 1em;
+}
+
 .avatar {
     width: 3em;
+    align-items: center;
     height: 3em;
     border-radius: 50%;
 }

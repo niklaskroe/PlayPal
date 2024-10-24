@@ -65,7 +65,36 @@ main {
 }
 
 /* Join a Game */
-
+.entryBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+}
+.entryContainer {
+    background-color: white;
+    padding: 1em;
+    margin: 10em;
+    border-radius: 1em;
+    display: inline-block;
+}
+.entryItems {
+    border: none;
+    border-radius: 1em;
+    box-shadow: inset 0 0 5px lightgray;
+}
+.entryButton {
+    width: 100%;
+    border: none;
+    border-radius: 1em;
+    box-shadow: none; 
+    background-color: rgba(217,70,122,1); 
+    color: white;
+}
+.entryButton:hover { 
+    box-shadow: 0 0 5px rgba(217,70,122,1);
+}
 
 
 /* Avatar */

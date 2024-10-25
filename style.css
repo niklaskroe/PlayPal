@@ -70,11 +70,6 @@ main {
 
 /* Avatar */
 
-.flexer {
-    display: flex;
-    flex-shrink: inherit;
-}
-
 .avatarBody {
     display: flex;
     justify-content: center;
@@ -99,7 +94,7 @@ main {
 }
 
 .avatarTab:hover {
-    background-color: rgba(230, 230, 230, 0.506);
+    box-shadow: 0px 15px 10px -15px rgba(217,70,122,1);
 }
 
 .avatarTab.selected {

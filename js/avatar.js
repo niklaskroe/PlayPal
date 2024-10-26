@@ -1,3 +1,7 @@
+import { initializePlayerData, initializeGameData, getPlayerData } from "./sharedData";
+
+initializePlayerData();
+
 // load characters immediately
 (function() {
     htmx.ajax('GET', '/pages/avatar/characters.html', {
@@ -22,7 +26,7 @@ function selectTab(tabId) {
 // building should happen in a generalized script to be available to all pages
 function selectItem(characterId, accessoryId) {
     const avatar = {
-        'characterId': characterId,
-        'accessoryId': accessoryId
+        characterId: characterId,
+        accessoryId: accessoryId
     };
 }

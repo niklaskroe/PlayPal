@@ -176,6 +176,7 @@ function initializeGameData() {
 
 function getPlayerData(playerId) {
     const players = JSON.parse(sessionStorage.getItem("defaultPlayers"));
+    console.log(players);
     return players ? players[playerId] : null;
 }
 

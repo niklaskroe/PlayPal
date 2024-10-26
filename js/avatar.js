@@ -1,6 +1,7 @@
-import { initializePlayerData, initializeGameData, getPlayerData } from "./sharedData";
+import { initializePlayerData, initializeGameData, getPlayerData } from "./sharedData.js";
 
 initializePlayerData();
+getPlayerData(1);
 
 // load characters immediately
 (function() {

@@ -2,15 +2,17 @@
 const userName = "Test"
 const userAvatar = "/assets/avatar/kahoot_glasses.svg"
 //Müssen später mit tatsächlichen Daten überschrieben werden
+//Aktuelles Team
+let playerTeam = null;
 
 //Team-Beitritt
 function joinTeam(teamElement) {
     //Spielr bereits in Team?
     const playersDiv = teamElement.querySelector('.players');
-    console.log('Players Div:', playersDiv);
+    //console.log('Players Div:', playersDiv);
 
     const existingPlayers = playersDiv.querySelectorAll('.player')
-    console.log('Existing Players:', existingPlayers);
+    //console.log('Existing Players:', existingPlayers);
 
     for (let player of existingPlayers) {
         if (player.querySelector('.playerName').textContent === userName) {
@@ -19,6 +21,17 @@ function joinTeam(teamElement) {
         }
     }
 
+    if (playerTeam) {
+        const prevPlayersDiv = playerTeam.querySelector('.players');
+        const prevPlayers = prevPlayersDiv.querySelectorAll('.player');
+        //Entfernen des Spielers bei Beitritt in ein neues Team
+        for (let player of prevPlayers) {
+            if (player.querySelector('.playerName').textContent === userName) {
+                prevPlayersDiv.removeChild(player);
+                break;
+            }
+        }
+    }
 
     const playerDiv = document.createElement('div');
     playerDiv.classList.add('player')
@@ -38,15 +51,14 @@ function joinTeam(teamElement) {
     playerDiv.appendChild(avatarImage);
     playerDiv.appendChild(nameSpan);
 
-    console.log('Adding Player Div',playerDiv)
+    //console.log('Adding Player Div',playerDiv)
 
     //Spieler Teamcontainer hinzufügen (ChatGPT)
     //Fehler war player"s"Div wurde übergeben :/
-    if (!Array.from(existingPlayers).includes(playerDiv)) {
-        playersDiv.appendChild(playerDiv);
-    } else {
-        console.log("Player is already in the team:", userName);
-    }
+    playersDiv.appendChild(playerDiv);
+
+
+    playerTeam = teamElement;
 }
 
 //On-Click eventListener

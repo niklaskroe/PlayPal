@@ -1,10 +1,25 @@
 //Benutzerdaten
-const userName = "Mein Benutzername"
+const userName = "Test"
 const userAvatar = "/assets/avatar/kahoot_glasses.svg"
 //Müssen später mit tatsächlichen Daten überschrieben werden
 
 //Team-Beitritt
 function joinTeam(teamElement) {
+    //Spielr bereits in Team?
+    const playersDiv = teamElement.querySelector('.players');
+    console.log('Players Div:', playersDiv);
+
+    const existingPlayers = playersDiv.querySelectorAll('.player')
+    console.log('Existing Players:', existingPlayers);
+
+    for (let player of existingPlayers) {
+        if (player.querySelector('.playerName').textContent === userName) {
+            alert("Du bist bereits in diesem Team!");
+            return
+        }
+    }
+
+
     const playerDiv = document.createElement('div');
     playerDiv.classList.add('player')
 
@@ -23,9 +38,15 @@ function joinTeam(teamElement) {
     playerDiv.appendChild(avatarImage);
     playerDiv.appendChild(nameSpan);
 
+    console.log('Adding Player Div',playerDiv)
+
     //Spieler Teamcontainer hinzufügen (ChatGPT)
-    const playersDiv = teamElement.querySelector('.players');
-    playersDiv.appendChild(playersDiv);
+    //Fehler war player"s"Div wurde übergeben :/
+    if (!Array.from(existingPlayers).includes(playerDiv)) {
+        playersDiv.appendChild(playerDiv);
+    } else {
+        console.log("Player is already in the team:", userName);
+    }
 }
 
 //On-Click eventListener

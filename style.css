@@ -109,6 +109,21 @@ main {
     margin: 0;
 }
 
+.continueButton {
+    display: flex;
+    justify-content: right;
+
+    Button {
+        margin: 1em;
+        padding: 0.5em;
+        font-size: 100%;
+        background-color: rgba(217,70,122,1);
+        color: white;
+        border: 1px solid rgba(217,70,122,1);
+        border-radius: 10px;
+    }
+}
+
 .avatarPlayer {
     width: 10em;
     height: 10em;

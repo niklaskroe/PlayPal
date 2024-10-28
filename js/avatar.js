@@ -1,15 +1,11 @@
-import { initializePlayerData, initializeGameData, getPlayerData } from "./sharedData.js";
-
-initializePlayerData();
-getPlayerData(1);
+import { getPlayerData } from "./sharedData.js";
 
 // load characters immediately
-(function() {
+(function loadCharacters() {
     htmx.ajax('GET', '/pages/avatar/characters.html', {
         target: '#avatarContent',
         swap: 'innerHTML'
     });
-    console.log("neu geladen");
 })();
 
 // change tab appearance on selection

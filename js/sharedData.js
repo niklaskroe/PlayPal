@@ -162,17 +162,18 @@ const gameData = {
 };
 
 // init default data
-function initializePlayerData() {
+(function defaultPlayers() {
     if (!sessionStorage.getItem("defaultPlayers")) {
         sessionStorage.setItem("defaultPlayers", JSON.stringify(defaultPlayers));
     }
-}
+    console.log("default players")
+})();
 
-function initializeGameData() {
+(function gameData() {
     if (!sessionStorage.getItem("gameData")) {
         sessionStorage.setItem("gameData", JSON.stringify(defaultPlayers));
     }
-}
+})();
 
 function getPlayerData(playerId) {
     const players = JSON.parse(sessionStorage.getItem("defaultPlayers"));
@@ -180,4 +181,4 @@ function getPlayerData(playerId) {
     return players ? players[playerId] : null;
 }
 
-export { initializePlayerData, initializeGameData, getPlayerData };
+export { getPlayerData };

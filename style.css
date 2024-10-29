@@ -55,6 +55,16 @@ footer {
     }
 }
 
+.support {
+    margin: 0;
+    padding: 0;
+    
+    a, a:visited {
+        text-decoration: none;
+        color: black;
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -66,6 +76,7 @@ main {
 }
 
 /* Join a Game */
+
 .entryBody {
     display: flex;
     justify-content: center;
@@ -73,6 +84,7 @@ main {
     min-height: 100vh;
     padding: 0;
 }
+
 .entryContainer {
     background-color: white;
     width: 20em;
@@ -86,6 +98,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .entryItems {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -120,6 +133,7 @@ main {
     background-color: rgba(217,70,122,1);
     color: white;
 }
+
 
 .entryButton:hover {
     box-shadow: 0 0 5px rgba(217,70,122,1);  

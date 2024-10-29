@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>PlayPal</title>
     <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+    <script type="module" src="/js/sharedData.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,19 +18,19 @@
         <nav>
             <ul>
                 <li>
-                    <a hx-get="/pages/entry.html" hx-target="#content" hx-swap="innerHTML">Join a Game</a>
+                    <a hx-get="/pages/entry.html" hx-target="#mainContent" hx-swap="innerHTML">Join a Game</a>
                 </li>
                 <li>
-                    <a hx-get="/pages/avatar/avatar.html" hx-target="#content" hx-swap="innerHTML">Avatar</a>
+                    <a hx-get="/pages/avatar/avatar.html" hx-target="#mainContent" hx-swap="innerHTML">Avatar</a>
                 </li>
                 <li>
-                    <a hx-get="/pages/team.html" hx-target="#content" hx-swap="innerHTML">Team</a>
+                    <a hx-get="/pages/team/team.html" hx-target="#mainContent" hx-swap="innerHTML">Team</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main id="content"></main>
+    <main id="mainContent"></main>
 
     <footer>
         <p>&copy; PlayPal</p>

@@ -1,105 +1,27 @@
 <body class="avatarBody">
+
+    <div class="continueButton">
+        <Button hx-get="/pages/team/team.html" 
+        hx-target="#mainContent"
+        hx-swap="innerHTML">Continue</Button>
+    </div>
+
+    <div class="avatarPlayer">
+        <img class="avatarSvg accessory" src="/assets/avatar/kahoot_glasses.svg" alt="">
+        <img class="avatarSvg character" src="/assets/avatar/kahoot_deer.svg" alt="">
+    </div>
+
     <div class="avatarContainer">
         <nav>
-            <span id="charactersTab" class="avatarTab selected" onclick="showTab('characters')">Characters</span>
-            <span id="accessoriesTab" class="avatarTab" onclick="showTab('accessories')">Accessories</span>
+            <a id="charactersTab" class="avatarTab selected" hx-get="/pages/avatar/characters.html" hx-target="#avatarContent" hx-swap="innerHTML">Characters</a>
+            <span class="spacer"></span>
+            <a id="accessoriesTab" class="avatarTab" hx-get="/pages/avatar/accessories.html" hx-target="#avatarContent" hx-swap="innerHTML">Accessories</a>
         </nav>
 
-        <div class="flexer">
-            <div class="selectionContainer" id="avatarContent">
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-                <div class="avatarItem">
-                    <img src="/assets/avatar/kahoot_glasses.svg" alt="">
-                </div>
-            </div>
+        <div class="selectionContainer" id="avatarContent">
+            <!--loading items here-->
         </div>
     </div>
 
-    <script src="/js/avatar.js"></script>
+    <script type="module" src="/js/avatar.js"></script>
 </body>

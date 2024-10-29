@@ -260,4 +260,12 @@ function getGames() {
     }
 }
 
-export { getPlayer, setPlayer, getGames, getBots };
+function getGame(gameId) {
+    if (!games[gameId]) {
+        return null;
+    }
+    
+    return games[gameId];
+}
+
+export { getPlayer, setPlayer, getGame, getGames, getBots };

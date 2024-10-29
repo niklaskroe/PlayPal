@@ -207,12 +207,7 @@ function getPlayer() {
     }
 }
 
-function setPlayer(name, character, accessory) {
-    let player = {
-        name: name,
-        character: character,
-        accessory: accessory
-    }
+function setPlayer(player) {
     sessionStorage.setItem("player", JSON.stringify(player))
 }
 

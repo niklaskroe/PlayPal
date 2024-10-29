@@ -8,7 +8,7 @@ größer
 <body class="entryBody">
     <div class="entryContainer">
         <div>
-            <input class="entryItems"
+            <input id="player" class="entryItems"
                 style="text-align: center;"
                 required 
                 type="text" 
@@ -18,7 +18,7 @@ größer
                 placeholder="Name" > </input>
         </div>
         <div>
-            <input class="entryItems"
+            <input id="pin" class="entryItems"
                 style="text-align: center;"
                 required 
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
@@ -31,13 +31,13 @@ größer
                 placeholder="Game-Pin" >
         </input>
         </div>
-        <div>
-            <button class="entryButton">
+        <div>         
+            <button id="startButton" class="entryButton disabled">
+                
                 <a hx-get="/pages/avatar/avatar.html" hx-target="#content" hx-swap="innerHTML">Join</a> <!--if-Abfrage?-->
-            </button>
+                
+            </button>        
         </div>
-    </div>
-
-
+    <script type="module" src="js/entry.js"></script>  
 </body>
 

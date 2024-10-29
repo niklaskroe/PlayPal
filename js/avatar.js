@@ -1,6 +1,6 @@
-import { getMainPlayer } from "./sharedData.js";
+import { getPlayer } from "./sharedData.js";
 
-const pl = getMainPlayer();
+const pl = getPlayer();
 console.log(pl);
 
 // load characters immediately
@@ -13,13 +13,13 @@ console.log(pl);
 
 // change tab appearance on selection
 function selectTab(selectedTabId) {
-    const tabs = document.querySelectorAll('.avatarTab');
+    let tabs = document.querySelectorAll('.avatarTab');
     
     tabs.forEach(tab => {
         tab.classList.remove('selected');
     });
 
-    const selectedTab = document.getElementById(selectedTabId);
+    let selectedTab = document.getElementById(selectedTabId);
     selectedTab.classList.add('selected');
 }
 
@@ -33,9 +33,12 @@ document.querySelectorAll('.avatarTab').forEach(tab => {
 // each item has an id, saving both ids of the character and accessory in an object model
 // avatar is being built separately by getting all components with the right id --> avatarBuilder
 // building should happen in a generalized script to be available to all pages
-function selectItem(characterId, accessoryId) {
-    const avatar = {
-        characterId: characterId,
-        accessoryId: accessoryId
-    };
+function updateAvatar(selectedItem) {
+    
 }
+
+document.querySelectorAll('.avatarItem').forEach(item => {
+    item.addEventListener('click', (event) => {
+
+    });
+})

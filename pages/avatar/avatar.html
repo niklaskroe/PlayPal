@@ -2,7 +2,7 @@
 
     <div class="continueButton">
         <Button hx-get="/pages/team/team.html" 
-        hx-target="#mainContent" 
+        hx-target="#mainContent"
         hx-swap="innerHTML">Continue</Button>
     </div>
 
@@ -13,9 +13,9 @@
 
     <div class="avatarContainer">
         <nav>
-            <a id="charactersTab" class="avatarTab selected" onclick="selectTab('charactersTab')" hx-get="/pages/avatar/characters.html" hx-target="#avatarContent" hx-swap="innerHTML">Characters</a>
+            <a id="charactersTab" class="avatarTab selected" hx-get="/pages/avatar/characters.html" hx-target="#avatarContent" hx-swap="innerHTML">Characters</a>
             <span class="spacer"></span>
-            <a id="accessoriesTab" class="avatarTab" onclick="selectTab('accessoriesTab')" hx-get="/pages/avatar/accessories.html" hx-target="#avatarContent" hx-swap="innerHTML">Accessories</a>
+            <a id="accessoriesTab" class="avatarTab" hx-get="/pages/avatar/accessories.html" hx-target="#avatarContent" hx-swap="innerHTML">Accessories</a>
         </nav>
 
         <div class="selectionContainer" id="avatarContent">

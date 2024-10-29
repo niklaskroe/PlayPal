@@ -162,6 +162,12 @@ const gameData = {
 };
 
 // init default data
+(function gameData() {
+    if (!sessionStorage.getItem("gameData")) {
+        sessionStorage.setItem("gameData", JSON.stringify(defaultPlayers));
+    }
+})();
+
 (function defaultPlayers() {
     if (!sessionStorage.getItem("defaultPlayers")) {
         sessionStorage.setItem("defaultPlayers", JSON.stringify(defaultPlayers));
@@ -169,16 +175,29 @@ const gameData = {
     console.log("default players")
 })();
 
-(function gameData() {
-    if (!sessionStorage.getItem("gameData")) {
-        sessionStorage.setItem("gameData", JSON.stringify(defaultPlayers));
+// init player
+(function mainPlayer() {
+    if (!sessionStorage.getItem("mainPlayer")) {
+        sessionStorage.setItem("mainPlayer", JSON.stringify(mainPlayer));
     }
 })();
 
-function getPlayerData(playerId) {
-    const players = JSON.parse(sessionStorage.getItem("defaultPlayers"));
-    console.log(players);
-    return players ? players[playerId] : null;
+// getter and setter
+function getMainPlayer() {
+    const playerData = sessionStorage.getItem("mainPlayer");
+
+    if (!playerData) {
+        console.warn("No main player found in sessionStorage");
+        return null;
+    }
+
+    try {
+        const player = JSON.parse(playerData);
+        return player;
+    } catch (error) {
+        console.error("JSON parser ERROR: main player data", error);
+        return null;
+    }
 }
 
-export { getPlayerData };
+export { getMainPlayer };

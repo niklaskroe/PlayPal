@@ -1,4 +1,7 @@
-import { getPlayerData } from "./sharedData.js";
+import { getMainPlayer } from "./sharedData.js";
+
+const pl = getMainPlayer();
+console.log(pl);
 
 // load characters immediately
 (function loadCharacters() {
@@ -9,13 +12,22 @@ import { getPlayerData } from "./sharedData.js";
 })();
 
 // change tab appearance on selection
-function selectTab(tabId) {
-    document.querySelectorAll('.avatarTab').forEach(function(tab) {
+function selectTab(selectedTabId) {
+    const tabs = document.querySelectorAll('.avatarTab');
+    
+    tabs.forEach(tab => {
         tab.classList.remove('selected');
     });
 
-    document.getElementById(tabId).classList.add('selected');
+    const selectedTab = document.getElementById(selectedTabId);
+    selectedTab.classList.add('selected');
 }
+
+document.querySelectorAll('.avatarTab').forEach(tab => {
+    tab.addEventListener('click', (event) => {
+        selectTab(event.target.id);
+    });
+});
 
 // avatarItem selection
 // each item has an id, saving both ids of the character and accessory in an object model

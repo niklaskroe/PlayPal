@@ -33,11 +33,12 @@ document.querySelectorAll('.avatarTab').forEach(tab => {
 function updateAvatar(selectedItem) {
     let player = getPlayer();
 
-    // if (selectedItem) {
-    //    player.character = selectedItem;
-    // } else {
-    //    player.accessory = selectedItem;
-    // }
+    if (selectedItem.startsWith('character')) {
+        player.character = selectedItem;
+    }
+    if (selectedItem.startsWith('accessory')) {
+       player.accessory = selectedItem;
+    }
 
     setPlayer(player);
 }

@@ -263,4 +263,8 @@ function getGame(gameId) {
     return games[gameId];
 }
 
+function buildAvatar(entity) {
+    
+}
+
 export { getPlayer, setPlayer, getGame, getGames, getBots };

@@ -6,6 +6,7 @@ const gamesData = getGames();
 
 if (playerData) {
     console.log('Spieler Daten:', playerData);
+    createExampleTeams();
 } else {
     console.log('Spieler Daten konnten nicht abgerufen werden.');
 }
@@ -20,6 +21,63 @@ if (gamesData) {
     console.log('Spiele Daten:', gamesData);
 } else {
     console.log('Spiele Daten konnten nicht abgerufen werden.');
+}
+
+//BeispielTeams
+function createExampleTeams() {
+    const teamContainer = document.querySelector('.teamSelection');
+
+    const teams = [
+        { name: "Team Alpha", players: [botsData.player1, botsData.player2]},
+        { name: "Team Beta", players: [botsData.player3, botsData.player4]},
+        { name: "Team Gamma", players: [botsData.player5, botsData.player6]},
+        { name: "Team Delta", players: [botsData.player7, botsData.player8]}
+    ];
+
+    teams.forEach(team => {
+        const teamDiv = document.createElement('div');
+        teamDiv.classList.add('team');
+
+        const teamTitle = document.createElement('h2');
+        teamTitle.textContent = team.name;
+
+        const playersDiv = document.createElement('div')
+        playersDiv.classList.add('players');
+
+        //Bot-Spieler Hinzufügen
+        team.players.forEach(player => {
+            const playerDiv = document.createElement('div');
+            playerDiv.classList.add('player');
+
+            const avatarImage = document.createElement('img');
+            avatarImage.src = '/assets/avatar/kahoot_deer.svg' || player.avatar;
+            avatarImage.alt = player.name;
+            avatarImage.classList.add('avatar');
+
+            const nameSpan = document.createElement('span');
+            nameSpan.classList.add('playerName');
+            nameSpan.textContent = player.name;
+
+            // Spieler-Div aktualisieren
+            playerDiv.appendChild(avatarImage);
+            playerDiv.appendChild(nameSpan);
+            playersDiv.appendChild(playerDiv);
+        });
+
+        const teamButtonContainer = document.createElement('div');
+        teamButtonContainer.classList.add('teamButtonContainer');
+
+        const teamButton = document.createElement('button');
+        teamButton.classList.add('teamButton');
+        teamButton.textContent = 'Beitreten';
+        teamButtonContainer.appendChild(teamButton);
+
+        // Team zusammenbauen
+        teamDiv.appendChild(teamTitle);
+        teamDiv.appendChild(playersDiv);
+        teamDiv.appendChild(teamButtonContainer);
+        teamContainer.appendChild(teamDiv);
+    });
 }
 
 //Aktuelles Team

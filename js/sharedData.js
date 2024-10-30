@@ -1,42 +1,42 @@
 // default bots
 const bots = {
     player1: {
-        name: "",
+        name: "Herbert",
         character: 1,
         accessory: 1
     },
     player2: {
-        name: "",
+        name: "Frank",
         character: 2,
         accessory: 2
     },
     player3: {
-        name: "",
+        name: "Reus",
         character: 3,
         accessory: 3
     },
     player4: {
-        name: "",
+        name: "Justin",
         character: 4,
         accessory: 4
     },
     player5: {
-        name: "",
+        name: "Niklas",
         character: 5,
         accessory: 5
     },
     player6: {
-        name: "",
+        name: "Pewe",
         character: 6,
         accessory: 6
     },
     player7: {
-        name: "",
+        name: "Frankenstein",
         character: 7,
         accessory: 7
     },
     player8: {
-        name: "",
+        name: "Tanzverbot",
         character: 8,
         accessory: 8
     },

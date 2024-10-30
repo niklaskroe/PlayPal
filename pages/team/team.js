@@ -62,6 +62,10 @@ function joinTeam(teamElement) {
 }
 
 //On-Click eventListener
-document.querySelectorAll('.team').forEach(team =>{
-    team.addEventListener('click',()=> joinTeam(team));
-})
+document.querySelectorAll('.teamButton').forEach(button =>{
+    button.addEventListener('click',(event)=> {
+        event.stopPropagation();
+        const teamElement = button.closest('.team');
+        joinTeam(teamElement);
+    });
+});

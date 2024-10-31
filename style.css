@@ -111,6 +111,17 @@ main {
     border-radius: 1em;
     box-shadow: inset 0 0 5px lightgray;
 }
+
+.entryItems.inputFalse{
+    border: solid red;
+    color:red;
+}
+
+.entryItems.inputTrue{
+    border:solid green;
+    color: green;
+}
+
 .entryButton{
     padding-top: 0.5em;
     padding-bottom: 0.5em;

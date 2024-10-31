@@ -337,3 +337,20 @@ main {
     height: 3em;
     border-radius: 50%;
 }
+
+.teamButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1em;
+}
+
+.teamButton {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 14pt;
+    margin-top: 0.5em;
+    width: 17em;
+    box-sizing: border-box;
+    border-radius: 1em;
+    box-shadow: none;
+}

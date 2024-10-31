@@ -1,8 +1,5 @@
 import { getPlayer } from "./sharedData.js";
 
-const pl = getPlayer();
-console.log(pl);
-
 // load characters immediately
 (function loadCharacters() {
     htmx.ajax('GET', '/pages/avatar/characters.html', {
@@ -34,11 +31,20 @@ document.querySelectorAll('.avatarTab').forEach(tab => {
 // avatar is being built separately by getting all components with the right id --> avatarBuilder
 // building should happen in a generalized script to be available to all pages
 function updateAvatar(selectedItem) {
-    
+    let player = getPlayer();
+
+    if (selectedItem.startsWith('character')) {
+        player.character = selectedItem;
+    }
+    if (selectedItem.startsWith('accessory')) {
+       player.accessory = selectedItem;
+    }
+
+    setPlayer(player);
 }
 
 document.querySelectorAll('.avatarItem').forEach(item => {
     item.addEventListener('click', (event) => {
-
+        updateAvatar(event.target.id);
     });
 })

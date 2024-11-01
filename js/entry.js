@@ -61,16 +61,12 @@ pin.addEventListener('input', function(event){
     }
 });
 
-button.addEventListener('click', function() {
-
-  // Ändere die CSS-Klasse des Buttons
-  //window.location.href = '/pages/avatar/avatar.html';
-  
-  //button.classList.toggle('entryButton'); // Fügt die Klasse 'active' hinzu oder entfernt sie
-  /*if(conditionPin == true && conditionPlayer == true) {
-    enableButton();
-} else {
-    disableButton();
-}*/
+button.addEventListener('click', function(event) {
+    const htmxLink = document.querySelector('[hx-get="/pages/avatar/avatar.html"]');
+    // HTMX-Request manuell auslösen
+    htmx.ajax('GET', '/pages/avatar/avatar.html', {
+        target: '#mainContent',
+        swap: 'innerHTML'
+    });
 console.log("HYAAA")
 });

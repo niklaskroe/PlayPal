@@ -137,7 +137,7 @@ main {
     border: solid rgba(217,70,122,1); 
     background-color: white; 
     color: rgba(217,70,122,1);
-    /*pointer-events: none;*/
+    pointer-events: none;
 }
 .entryButton.enabled{
     border: none;

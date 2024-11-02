@@ -1,4 +1,4 @@
-import { getPlayer } from "./sharedData.js";
+import { getPlayer, buildAvatar } from "./sharedData.js";
 
 // load characters immediately
 (function loadCharacters() {
@@ -27,6 +27,19 @@ document.querySelectorAll('.avatarTab').forEach(tab => {
 });
 
 // avatarItem selection
+(function() {
+    buildAvatar(getPlayer(), 'avatarPlayer');
+
+    document.querySelectorAll('.avatarItem').forEach(item => {
+        item.addEventListener('click', (event) => {
+            const selectedItem = event.target.closest('.avatarItem').id;
+            updateAvatar(selectedItem);
+
+            buildAvatar(getPlayer(), 'avatarPlayer');
+        });
+    });
+})();
+
 // each item has an id, saving both ids of the character and accessory in an object model
 // avatar is being built separately by getting all components with the right id --> avatarBuilder
 // building should happen in a generalized script to be available to all pages
@@ -34,17 +47,11 @@ function updateAvatar(selectedItem) {
     let player = getPlayer();
 
     if (selectedItem.startsWith('character')) {
-        player.character = selectedItem;
+        player.character = selectedItem.replace('character', '');
     }
     if (selectedItem.startsWith('accessory')) {
-       player.accessory = selectedItem;
+       player.accessory = selectedItem.replace('accessory', '');
     }
 
     setPlayer(player);
 }
-
-document.querySelectorAll('.avatarItem').forEach(item => {
-    item.addEventListener('click', (event) => {
-        updateAvatar(event.target.id);
-    });
-})

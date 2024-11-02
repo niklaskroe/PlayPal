@@ -255,16 +255,26 @@ function getGames() {
     }
 }
 
-function getGame(gameId) {
-    if (!games[gameId]) {
-        return null;
-    }
-    
-    return games[gameId];
+function isGame(pin) {
+    let gameData = getGames();
+
+    return gameData.find(game => game.pin === pin);
 }
 
-function buildAvatar(entity) {
-    
+function buildAvatar(player, target) {
+    let characterId = player.character;
+    let accessoryId = player.accessory;
+
+    let characterSrc = `/assets/avatar/character${characterId}.svg`;
+    let accessorySrc = `/assets/avatar/accessory${accessoryId}.svg`;
+
+    let targetElement = document.getElementById(target);
+    if (!targetElement) return;
+
+    targetElement.innerHTML = `
+        <img class="avatarSvg character" src="${characterSrc}" alt="Character ${characterId}">
+        <img class="avatarSvg accessory" src="${accessorySrc}" alt="Accessory ${accessoryId}">
+    `;
 }
 
-export { getPlayer, setPlayer, getGame, getGames, getBots };
+export { getPlayer, setPlayer, buildAvatar, isGame, getGames, getBots };

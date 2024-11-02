@@ -75,7 +75,7 @@ button.addEventListener('click', function() {
     // HTMX-Request manuell auslösen
         htmx.ajax('GET', '/pages/avatar/avatar.html', {
             target: '#mainContent',
-            swap: 'innerHTML'
+            swap: 'innerHTML',
         });
     } else {
         alert("Not found");

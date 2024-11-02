@@ -255,12 +255,10 @@ function getGames() {
     }
 }
 
-function getGame(gameId) {
-    if (!games[gameId]) {
-        return null;
-    }
-    
-    return games[gameId];
+function isGame(pin) {
+    let gameData = getGames();
+
+    return gameData.find(game => game.pin === pin);
 }
 
 function buildAvatar(player, target) {
@@ -279,4 +277,4 @@ function buildAvatar(player, target) {
     `;
 }
 
-export { getPlayer, setPlayer, buildAvatar, getGame, getGames, getBots };
+export { getPlayer, setPlayer, buildAvatar, isGame, getGames, getBots };

@@ -1,9 +1,11 @@
+import { getGame } from "./sharedData.js";
 
 const button = document.getElementById('startButton');
 let conditionPlayer = false;
 let conditionPin = false;
 const pin = document.getElementById('pin');
 const player = document.getElementById('player');
+let code = null;
 // Button deaktivieren
 function disableButton() {
     button.classList.remove('enabled');         // Entfernt die aktive Klasse
@@ -41,8 +43,8 @@ player.addEventListener('input', function(event){
         player.classList.remove('inputTrue');
         conditionPlayer = false;
     }
-})  
-;
+});
+
 pin.addEventListener('input', function(event){
     if(event.target.value.length<6){
         pin.classList.remove('inputTrue');
@@ -53,6 +55,8 @@ pin.addEventListener('input', function(event){
         pin.classList.add('inputTrue');
         conditionPin = true;
         updateButton();
+        code = event.target.value;
+        console.log(code);
     }
     if (event.target.value.length==0){
         pin.classList.remove('inputFalse');
@@ -61,12 +65,17 @@ pin.addEventListener('input', function(event){
     }
 });
 
-button.addEventListener('click', function(event) {
-    const htmxLink = document.querySelector('[hx-get="/pages/avatar/avatar.html"]');
+button.addEventListener('click', function() {
+    let code2 = code;
+    console.log(code2);
+    if(getGame(parseInt(code2))!= null){
+        const htmxLink = document.querySelector('[hx-get="/pages/avatar/avatar.html"]');
     // HTMX-Request manuell auslösen
-    htmx.ajax('GET', '/pages/avatar/avatar.html', {
-        target: '#mainContent',
-        swap: 'innerHTML'
+        htmx.ajax('GET', '/pages/avatar/avatar.html', {
+            target: '#mainContent',
+            swap: 'innerHTML'
     });
-console.log("HYAAA")
+    } else {
+        alert("Not found");
+    }
 });

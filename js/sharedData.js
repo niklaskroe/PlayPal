@@ -256,9 +256,11 @@ function getGames() {
 }
 
 function isGame(pin) {
-    let gameData = getGames();
+    let gameData = Object.values(getGames());
 
-    return gameData.find(game => game.pin === pin);
+    let result = gameData.find(game => game.pin === pin);
+
+    return !!result;
 }
 
 function buildAvatar(player, target) {

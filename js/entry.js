@@ -1,4 +1,4 @@
-import { getGame } from "./sharedData.js";
+import { isGame } from "./sharedData.js";
 
 const button = document.getElementById('startButton');
 let conditionPlayer = false;
@@ -67,14 +67,16 @@ pin.addEventListener('input', function(event){
 
 button.addEventListener('click', function() {
     let code2 = code;
+    console.log(code);
     console.log(code2);
-    if(getGame(parseInt(code2))!= null){
+    //console.log(pin.target.value);
+    if(isGame(code2)){
         const htmxLink = document.querySelector('[hx-get="/pages/avatar/avatar.html"]');
     // HTMX-Request manuell auslösen
         htmx.ajax('GET', '/pages/avatar/avatar.html', {
             target: '#mainContent',
             swap: 'innerHTML'
-    });
+        });
     } else {
         alert("Not found");
     }

@@ -1,11 +1,15 @@
-import { isGame } from "./sharedData.js";
+import { isGame, setPlayer } from "./sharedData.js";
 
 const button = document.getElementById('startButton');
 let conditionPlayer = false;
 let conditionPin = false;
-const pin = document.getElementById('pin');
-const player = document.getElementById('player');
 let code = null;
+
+const player = {
+    name: "",
+    character: 0,
+    accessory: 0
+}
 // Button deaktivieren
 function disableButton() {
     button.classList.remove('enabled');         // Entfernt die aktive Klasse
@@ -27,6 +31,10 @@ function updateButton() {
     }
 }
 
+function setName(name){
+    player.name = name;
+    setPlayer(player);
+}
 document.getElementById('nameInput').addEventListener('input', (event) => {
     const nameInput = event.target;
     if(nameInput.value.length<3){
@@ -38,6 +46,7 @@ document.getElementById('nameInput').addEventListener('input', (event) => {
         nameInput.classList.add('inputTrue');
         conditionPlayer = true;
         updateButton();
+        setName(nameInput.value);
     }
     if (nameInput.value.length==0){
         nameInput.classList.remove('inputFalse');

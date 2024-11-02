@@ -50,7 +50,7 @@ function createExampleTeams() {
             playerDiv.classList.add('player');
 
             const avatarImage = document.createElement('img');
-            avatarImage.src = '/assets/avatar/kahoot_deer.svg' || player.avatar;
+            avatarImage.src = '/assets/avatar/character0.svg' || player.avatar;
             avatarImage.alt = player.name;
             avatarImage.classList.add('avatar');
 
@@ -116,7 +116,7 @@ function joinTeam(teamElement) {
 
     //Avatar
     const avatarImage = document.createElement('img');
-    avatarImage.src = playerData.avatar || '/assets/avatar/kahoot_glasses.svg';
+    avatarImage.src = playerData.avatar || '/assets/avatar/accessory0.svg';
     avatarImage.alt = playerData.name;
     avatarImage.classList.add('avatar');
 

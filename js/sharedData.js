@@ -124,8 +124,8 @@ const bots = {
 // data of player
 const player = {
     name: "Torben",
-    character: 2,
-    accessory: 4
+    character: 0,
+    accessory: 0
 }
 // available game sessions
 const games = {
@@ -263,8 +263,20 @@ function getGame(gameId) {
     return games[gameId];
 }
 
-function buildAvatar(entity) {
-    
+function buildAvatar(player, target) {
+    let characterId = player.character;
+    let accessoryId = player.accessory;
+
+    let characterSrc = `/assets/avatar/character${characterId}.svg`;
+    let accessorySrc = `/assets/avatar/accessory${accessoryId}.svg`;
+
+    let targetElement = document.getElementById(target);
+    if (!targetElement) return;
+
+    targetElement.innerHTML = `
+        <img class="avatarSvg character" src="${characterSrc}" alt="Character ${characterId}">
+        <img class="avatarSvg accessory" src="${accessorySrc}" alt="Accessory ${accessoryId}">
+    `;
 }
 
-export { getPlayer, setPlayer, getGame, getGames, getBots };
+export { getPlayer, setPlayer, buildAvatar, getGame, getGames, getBots };

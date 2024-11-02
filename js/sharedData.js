@@ -124,8 +124,8 @@ const bots = {
 // data of player
 const player = {
     name: "Torben",
-    character: 0,
-    accessory: 0
+    character: 2,
+    accessory: 4
 }
 // available game sessions
 const games = {

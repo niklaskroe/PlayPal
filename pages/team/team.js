@@ -4,9 +4,14 @@ const playerData = getPlayer();
 const botsData = getBots();
 const gamesData = getGames();
 
+//Spiele-Pin
+const gamePinDisplay = document.getElementById('gamePinDisplay');
+let pin = JSON.parse(sessionStorage.getItem("player"))?.pin || '222222';
+gamePinDisplay.textContent = pin;
+
 if (playerData) {
     console.log('Spieler Daten:', playerData);
-    createExampleTeams();
+    loadTeams(pin);
 } else {
     console.log('Spieler Daten konnten nicht abgerufen werden.');
 }
@@ -23,8 +28,93 @@ if (gamesData) {
     console.log('Spiele Daten konnten nicht abgerufen werden.');
 }
 
+// Lade die Teams basierend auf der PIN
+function loadTeams(pin) {
+    const gameData = getGames();
+    const selectedGame = Object.values(gameData).find(game => game.pin == pin);
+
+    if (selectedGame) {
+        const teamsCount = selectedGame.teams; // Anzahl der Teams
+        const totalPlayers = selectedGame.playerCount; // Anzahl Spieler (bots)
+        const teamContainer = document.querySelector('.teamSelection');
+
+        // Leerer Team-Container
+        teamContainer.innerHTML = '';
+
+        for (let i = 0; i < teamsCount; i++) {
+            const teamName = `Team ${String.fromCharCode(65 + i)}`; // Team A, B, C, ...
+            const players = getPlayersForTeam(i, teamsCount, totalPlayers); // Bots für die Teams
+
+            const teamDiv = document.createElement('div');
+            teamDiv.classList.add('team');
+
+            const teamTitle = document.createElement('h2');
+            teamTitle.textContent = teamName;
+
+            const playersDiv = document.createElement('div');
+            playersDiv.classList.add('players');
+
+            players.forEach(player => {
+                const playerDiv = document.createElement('div');
+                playerDiv.classList.add('player');
+
+                const avatarImage = document.createElement('img');
+                avatarImage.src = player.avatar || '/assets/avatar/character1.svg'; // Standard-Avatar
+                avatarImage.alt = player.name;
+                avatarImage.classList.add('avatar');
+
+                const nameSpan = document.createElement('span');
+                nameSpan.classList.add('playerName');
+                nameSpan.textContent = player.name;
+
+                playerDiv.appendChild(avatarImage);
+                playerDiv.appendChild(nameSpan);
+                playersDiv.appendChild(playerDiv);
+            });
+
+            const teamButtonContainer = document.createElement('div');
+            teamButtonContainer.classList.add('teamButtonContainer');
+
+            const teamButton = document.createElement('button');
+            teamButton.classList.add('teamButton');
+            teamButton.textContent = 'Beitreten';
+            teamButtonContainer.appendChild(teamButton);
+
+            teamDiv.appendChild(teamTitle);
+            teamDiv.appendChild(playersDiv);
+            teamDiv.appendChild(teamButtonContainer);
+            teamContainer.appendChild(teamDiv);
+        }
+    } else {
+        console.log('Kein Spiel mit dieser PIN gefunden.');
+    }
+}
+
+function getPlayersForTeam(teamIndex, totalTeams, totalPlayers) {
+    const bots = getBots();
+    const playerKeys = Object.keys(bots);
+    const players = [];
+
+    //Anzahl Spieler pro Team
+    const playersPerTeam = Math.ceil(totalPlayers / totalTeams);
+
+    //Startteam
+    const startIndex = teamIndex * playersPerTeam;
+
+    //Spieler aktuellem Team hinzufügen (bots)
+    for (let i = startIndex; i < startIndex + playersPerTeam; i++) {
+        if (playerKeys[i]) {
+            players.push({
+                name: bots[playerKeys[i]].name,
+                avatar: `/assets/avatar/character${bots[playerKeys[i]].character}.svg`
+            });
+        }
+    }
+
+    return players;
+}
 //BeispielTeams
-function createExampleTeams() {
+/*function createExampleTeams() {
     const teamContainer = document.querySelector('.teamSelection');
 
     const teams = [
@@ -79,6 +169,8 @@ function createExampleTeams() {
         teamContainer.appendChild(teamDiv);
     });
 }
+
+ */
 
 //Aktuelles Team
 let playerTeam = null;

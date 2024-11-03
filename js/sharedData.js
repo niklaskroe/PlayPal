@@ -41,82 +41,82 @@ const bots = {
         accessory: 8
     },
     player9: {
-        name: "",
+        name: "Milch ist Gift",
         character: 9,
         accessory: 9
     },
     player10: {
-        name: "",
+        name: "Orangensaft",
         character: 10,
         accessory: 10
     },
     player11: {
-        name: "",
+        name: "Käsekuchen",
         character: 11,
         accessory: 11
     },
     player12: {
-        name: "",
+        name: "KahootSpion",
         character: 12,
         accessory: 12
     },
     player13: {
-        name: "",
+        name: "OkBro",
         character: 13,
         accessory: 13
     },
     player14: {
-        name: "",
+        name: "Suke Lykwalker",
         character: 14,
         accessory: 14
     },
     player15: {
-        name: "",
+        name: "Darth Vader",
         character: 15,
         accessory: 15
     },
     player16: {
-        name: "",
+        name: "Jakob",
         character: 16,
         accessory: 16
     },
     player17: {
-        name: "",
+        name: "Zweite Person",
         character: 17,
         accessory: 17
     },
     player18: {
-        name: "",
+        name: "Eine Person",
         character: 18,
         accessory: 18
     },
     player19: {
-        name: "",
+        name: "MoneyBoy",
         character: 19,
         accessory: 19
     },
     player20: {
-        name: "",
+        name: "Wer",
         character: 20,
         accessory: 20
     },
     player21: {
-        name: "",
+        name: "Die3???",
         character: 21,
         accessory: 21
     },
     player22: {
-        name: "",
+        name: "Santa Claus",
         character: 22,
         accessory: 22
     },
     player23: {
-        name: "",
+        name: "Buggs Bunny",
         character: 23,
         accessory: 23
     },
     player24: {
-        name: "",
+        name: "Nase",
         character: 24,
         accessory: 24
     }

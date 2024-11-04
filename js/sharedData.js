@@ -130,36 +130,36 @@ const player = {
 // available game sessions
 const games = {
     game1: {
-      pin: 111111,
-      playerCount: 8,
-      teams: 0,
+        pin: 111111,
+        playerCount: 8,
+        teams: 0,
     },
     game2: {
       pin: 222222,
-      playerCount: 11,
+      playercount: 11,
       teams: 2,
     },
     game3: {
       pin: 333333,
-      playerCount: 23,
+      playercount: 23,
       teams: 3,
     },
     game4: {
       pin: 444444,
-      playerCount: 23,
+      playercount: 23,
       teams: 3,
     },
     game5: {
       pin: 555555,
-      playerCount: 23,
+      playercount: 23,
       teams: 0,
     },
     game6: {
       pin: 777777,
-      playerCount: 19,
+      playercount: 19,
       teams: 4,
     },
-  };
+};
 
 // clear sessionStorage
 sessionStorage.clear();

@@ -136,27 +136,27 @@ const games = {
     },
     game2: {
       pin: 222222,
-      playercount: 11,
+      playerCount: 11,
       teams: 2,
     },
     game3: {
       pin: 333333,
-      playercount: 23,
+      playerCount: 23,
       teams: 3,
     },
     game4: {
       pin: 444444,
-      playercount: 23,
+      playerCount: 23,
       teams: 3,
     },
     game5: {
       pin: 555555,
-      playercount: 23,
+      playerCount: 23,
       teams: 0,
     },
     game6: {
       pin: 777777,
-      playercount: 19,
+      playerCount: 19,
       teams: 4,
     },
 };

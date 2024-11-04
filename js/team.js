@@ -61,9 +61,7 @@ function loadTeams(pin) {
                 avatarContainer.id = `avatar-${player.name}-${index}`;
                 avatarContainer.classList.add('avatar');
 
-                //Avatar hinzufügen bevor er gebaut wird
-                playerDiv.appendChild(avatarContainer);
-
+                //Avatar bauen
                 buildAvatar(player, avatarContainer.id);
 
                 const nameSpan = document.createElement('span');
@@ -71,6 +69,7 @@ function loadTeams(pin) {
                 nameSpan.textContent = player.name;
 
                 playerDiv.appendChild(nameSpan);
+                playerDiv.appendChild(avatarContainer)
                 playersDiv.appendChild(playerDiv);
             });
 
@@ -98,15 +97,10 @@ function getPlayersForTeam(teamIndex, totalTeams, totalPlayers) {
     const playerValues = Object.values(botsData);
     const players = [];
 
-    console.log('Player-Keys',playerValues)
     //Anzahl Spieler pro Team
     const playersPerTeam = Math.floor(totalPlayers / totalTeams);
     //Startteam
     const startIndex = teamIndex * playersPerTeam;
-    console.log('totalPlayers', totalPlayers);
-    console.log('totalTeams', totalTeams);
-    console.log('teamIndex', teamIndex);
-    console.log('playersPerTeam',playersPerTeam);
 
     //Spieler aktuellem Team hinzufügen (bots)
     for (let i = startIndex; i < startIndex + playersPerTeam; i++) {

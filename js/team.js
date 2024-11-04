@@ -51,25 +51,25 @@ function loadTeams(pin) {
             teamTitle.textContent = teamName;
 
             const playersDiv = document.createElement('div');
-            playersDiv.classList.add('players');
+            playersDiv.classList.add('teamPlayers');
 
             players.forEach((player, index) => {
                 const playerDiv = document.createElement('div');
-                playerDiv.classList.add('player');
+                playerDiv.classList.add('teamPlayer');
 
-                const avatarContainer = document.createElement('div');
-                avatarContainer.id = `avatar-${player.name}-${index}`;
-                avatarContainer.classList.add('avatar');
+                const botAvatarContainer = document.createElement('div');
+                botAvatarContainer.id = `avatar-${playerData.name}-${index}`;
+                botAvatarContainer.classList.add('teamAvatar');
 
                 //Avatar bauen
-                buildAvatar(player, avatarContainer.id);
+                buildAvatar(player, botAvatarContainer.id);
 
                 const nameSpan = document.createElement('span');
-                nameSpan.classList.add('playerName');
+                nameSpan.classList.add('teamPlayerName');
                 nameSpan.textContent = player.name;
 
+                playerDiv.appendChild(botAvatarContainer);
                 playerDiv.appendChild(nameSpan);
-                playerDiv.appendChild(avatarContainer)
                 playersDiv.appendChild(playerDiv);
             });
 
@@ -80,7 +80,6 @@ function loadTeams(pin) {
             teamButton.classList.add('teamButton');
             teamButton.textContent = 'Beitreten';
             teamButtonContainer.appendChild(teamButton);
-            //console.log('PlayersDiv:',playersDiv);
             teamDiv.appendChild(teamTitle);
             teamDiv.appendChild(playersDiv);
             teamDiv.appendChild(teamButtonContainer);
@@ -133,25 +132,25 @@ let playerTeam = null;
 //Team-Beitritt
 function joinTeam(teamElement) {
     //Spielr bereits in Team?
-    const playersDiv = teamElement.querySelector('.players');
+    const playersDiv = teamElement.querySelector('.teamPlayers');
     //console.log('Players Div:', playersDiv);
 
-    const existingPlayers = playersDiv.querySelectorAll('.player')
+    const existingPlayers = playersDiv.querySelectorAll('.teamPlayer')
     //console.log('Existing Players:', existingPlayers);
 
     for (let player of existingPlayers) {
-        if (player.querySelector('.playerName').textContent === playerData.name) {
+        if (player.querySelector('.teamPlayerName').textContent === playerData.name) {
             alert("Du bist bereits in diesem Team!");
             return
         }
     }
 
     if (playerTeam) {
-        const prevPlayersDiv = playerTeam.querySelector('.players');
-        const prevPlayers = prevPlayersDiv.querySelectorAll('.player');
+        const prevPlayersDiv = playerTeam.querySelector('.teamPlayers');
+        const prevPlayers = prevPlayersDiv.querySelectorAll('.teamPlayer');
         //Entfernen des Spielers bei Beitritt in ein neues Team
         for (let player of prevPlayers) {
-            if (player.querySelector('.playerName').textContent === playerData.name) {
+            if (player.querySelector('.teamPlayerName').textContent === playerData.name) {
                 prevPlayersDiv.removeChild(player);
                 break;
             }
@@ -159,23 +158,23 @@ function joinTeam(teamElement) {
     }
 
     const playerDiv = document.createElement('div');
-    playerDiv.classList.add('player')
+    playerDiv.classList.add('teamPlayer')
 
     //Avatar
-    const avatarContainer = document.createElement('div');
-    avatarContainer.id = `avatar-${playerData.name}`;
-    avatarContainer.classList.add('avatar');
+    const playerAvatarContainer = document.createElement('div');
+    playerAvatarContainer.id = `avatar-${playerData.name}`;
+    playerAvatarContainer.classList.add('teamAvatar');
 
     //Avatar bauen
-    buildAvatar(playerData, avatarContainer.id);
+    buildAvatar(playerData, playerAvatarContainer.id);
 
     //Namen
     const nameSpan = document.createElement('span');
-    nameSpan.classList.add('playerName');
+    nameSpan.classList.add('teamPlayerName');
     nameSpan.textContent = playerData.name;
 
     //Player div updaten
-    playerDiv.appendChild(avatarContainer);
+    playerDiv.appendChild(playerAvatarContainer);
     playerDiv.appendChild(nameSpan);
 
     //console.log('Adding Player Div',playerDiv)

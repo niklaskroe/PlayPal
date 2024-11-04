@@ -281,7 +281,7 @@ main {
     box-sizing: border-box;
 }
 
-.flexContainer {
+.teamFlexContainer {
     display: flex;
 }
 
@@ -315,27 +315,30 @@ main {
     transition: background-color 0.3s;
 }
 
-.players {
+.teamPlayers {
     display: flex;
     gap: 10px;
     margin-top: 10px;
 }
 
-.player {
+.teamPlayer {
     display: flex;
     align-items: center;
 }
 
-.playerName {
+.teamPlayerName {
+    margin-top: 2.4em;
     margin-left: 0.5em;
     font-size: 1em;
 }
 
-.avatar {
+.teamAvatar {
     width: 3em;
-    align-items: center;
     height: 3em;
-    border-radius: 50%;
+
+    position: relative;
+    overflow: hidden;
+    margin: 2em auto auto;
 }
 
 .teamButtonContainer {

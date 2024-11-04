@@ -130,36 +130,36 @@ const player = {
 // available game sessions
 const games = {
     game1: {
-      pin: 111111,
-      playerCount: 8,
-      teams: 0,
+        pin: 111111,
+        playerCount: 8,
+        teams: 0,
     },
     game2: {
-      pin: 222222,
-      playercount: 11,
-      teams: 2,
+        pin: 222222,
+        playercount: 11,
+        teams: 2,
     },
     game3: {
-      pin: 333333,
-      playercount: 23,
-      teams: 3,
+        pin: 333333,
+        playercount: 23,
+        teams: 3,
     },
     game4: {
-      pin: 444444,
-      playercount: 23,
-      teams: 3,
+        pin: 444444,
+        playercount: 23,
+        teams: 3,
     },
     game5: {
-      pin: 555555,
-      playercount: 23,
-      teams: 0,
+        pin: 555555,
+        playercount: 23,
+        teams: 0,
     },
     game6: {
-      pin: 777777,
-      playercount: 19,
-      teams: 4,
+        pin: 777777,
+        playercount: 19,
+        teams: 4,
     },
-  };
+};
 
 // clear sessionStorage
 sessionStorage.clear();
@@ -257,7 +257,7 @@ function getGames() {
 
 function isGame(pin) {
     let gameData = Object.values(getGames());
-  
+
     return gameData.some(game => game.pin === pin);
 }
 

@@ -47,78 +47,78 @@ const bots = {
     },
     player10: {
         name: "Orangensaft",
-        character: 10,
-        accessory: 10
+        character: 0,
+        accessory: 0
     },
     player11: {
         name: "Käsekuchen",
-        character: 11,
-        accessory: 11
+        character: 1,
+        accessory: 1
     },
     player12: {
         name: "KahootSpion",
-        character: 12,
-        accessory: 12
+        character: 2,
+        accessory: 2
     },
     player13: {
         name: "OkBro",
-        character: 13,
-        accessory: 13
+        character: 3,
+        accessory: 3
     },
     player14: {
         name: "Suke Lykwalker",
-        character: 14,
-        accessory: 14
+        character: 4,
+        accessory: 4
     },
     player15: {
         name: "Darth Vader",
-        character: 15,
-        accessory: 15
+        character: 5,
+        accessory: 5
     },
     player16: {
         name: "Jakob",
-        character: 16,
-        accessory: 16
+        character: 6,
+        accessory: 6
     },
     player17: {
         name: "Zweite Person",
-        character: 17,
-        accessory: 17
+        character: 7,
+        accessory: 7
     },
     player18: {
         name: "Eine Person",
-        character: 18,
-        accessory: 18
+        character: 8,
+        accessory: 8
     },
     player19: {
         name: "MoneyBoy",
-        character: 19,
-        accessory: 19
+        character: 9,
+        accessory: 9
     },
     player20: {
         name: "Wer",
-        character: 20,
-        accessory: 20
+        character: 0,
+        accessory: 0
     },
     player21: {
         name: "Die3???",
-        character: 21,
-        accessory: 21
+        character: 1,
+        accessory: 1
     },
     player22: {
         name: "Santa Claus",
-        character: 22,
-        accessory: 22
+        character: 2,
+        accessory: 2
     },
     player23: {
         name: "Buggs Bunny",
-        character: 23,
-        accessory: 23
+        character: 3,
+        accessory: 3
     },
     player24: {
         name: "Nase",
-        character: 24,
-        accessory: 24
+        character: 4,
+        accessory: 4
     }
 };
 // data of player
@@ -136,27 +136,27 @@ const games = {
     },
     game2: {
       pin: 222222,
-      playercount: 11,
+      playerCount: 11,
       teams: 2,
     },
     game3: {
       pin: 333333,
-      playercount: 23,
+      playerCount: 23,
       teams: 3,
     },
     game4: {
       pin: 444444,
-      playercount: 23,
+      playerCount: 23,
       teams: 3,
     },
     game5: {
       pin: 555555,
-      playercount: 23,
+      playerCount: 23,
       teams: 0,
     },
     game6: {
       pin: 777777,
-      playercount: 19,
+      playerCount: 19,
       teams: 4,
     },
   };

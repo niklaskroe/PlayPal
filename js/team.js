@@ -4,6 +4,9 @@ const playerData = getPlayer();
 const botsData = getBots();
 const gamesData = getGames();
 
+//Globaler Index
+let globalPlayerIndex = 0;
+
 //Spiele-Pin
 const gamePinDisplay = document.getElementById('gamePinDisplay');
 let pin = JSON.parse(sessionStorage.getItem("player"))?.pin || '222222';
@@ -53,16 +56,31 @@ function loadTeams(pin) {
             const playersDiv = document.createElement('div');
             playersDiv.classList.add('teamPlayers');
 
-            players.forEach((player, index) => {
+            players.forEach((player) => {
                 const playerDiv = document.createElement('div');
                 playerDiv.classList.add('teamPlayer');
 
                 const botAvatarContainer = document.createElement('div');
-                botAvatarContainer.id = `avatar-${playerData.name}-${index}`;
+                botAvatarContainer.id = `avatar-${globalPlayerIndex}`; // Eindeutige ID
                 botAvatarContainer.classList.add('teamAvatar');
 
-                //Avatar bauen
-                buildAvatar(player, botAvatarContainer.id);
+                console.log(`Building Bot Avatar for: ${player.name} with ID: ${botAvatarContainer.id}`);
+
+                let characterId = player.character;
+                let accessoryId = player.accessory;
+
+                let characterSrc = `/assets/avatar/character${characterId}.svg`;
+                let accessorySrc = `/assets/avatar/accessory${accessoryId}.svg`;
+
+                if(botAvatarContainer){
+                    botAvatarContainer.innerHTML = `
+                    <img class="avatarSvg character" src="${characterSrc}" alt="Character ${characterId}">
+                    <img class="avatarSvg accessory" src="${accessorySrc}" alt="Accessory ${accessoryId}">
+                    `;
+                }
+
+                // Avatar bauen
+                //buildAvatar(player, `#avatar-${globalPlayerIndex}`);
 
                 const nameSpan = document.createElement('span');
                 nameSpan.classList.add('teamPlayerName');
@@ -71,6 +89,8 @@ function loadTeams(pin) {
                 playerDiv.appendChild(botAvatarContainer);
                 playerDiv.appendChild(nameSpan);
                 playersDiv.appendChild(playerDiv);
+
+                globalPlayerIndex++;
             });
 
             const teamButtonContainer = document.createElement('div');
@@ -80,6 +100,7 @@ function loadTeams(pin) {
             teamButton.classList.add('teamButton');
             teamButton.textContent = 'Beitreten';
             teamButtonContainer.appendChild(teamButton);
+
             teamDiv.appendChild(teamTitle);
             teamDiv.appendChild(playersDiv);
             teamDiv.appendChild(teamButtonContainer);
@@ -111,7 +132,7 @@ function getPlayersForTeam(teamIndex, totalTeams, totalPlayers) {
             });
         }
     }
-    console.log('bot-players',players)
+    console.log(`bot-players ${teamIndex}`,players)
     return players;
 }
 
@@ -162,11 +183,23 @@ function joinTeam(teamElement) {
 
     //Avatar
     const playerAvatarContainer = document.createElement('div');
-    playerAvatarContainer.id = `avatar-${playerData.name}`;
+    playerAvatarContainer.id = `avatar-${globalPlayerIndex}`;
     playerAvatarContainer.classList.add('teamAvatar');
 
+    let characterId = playerData.character;
+    let accessoryId = playerData.accessory;
+
+    let characterSrc = `/assets/avatar/character${characterId}.svg`;
+    let accessorySrc = `/assets/avatar/accessory${accessoryId}.svg`;
+
+    if(playerAvatarContainer){
+        playerAvatarContainer.innerHTML = `
+        <img class="avatarSvg character" src="${characterSrc}" alt="Character ${characterId}">
+        <img class="avatarSvg accessory" src="${accessorySrc}" alt="Accessory ${accessoryId}">
+        `;
+    }
     //Avatar bauen
-    buildAvatar(playerData, playerAvatarContainer.id);
+    //buildAvatar(playerData, `#avatar-${globalPlayerIndex}`);
 
     //Namen
     const nameSpan = document.createElement('span');
@@ -177,10 +210,9 @@ function joinTeam(teamElement) {
     playerDiv.appendChild(playerAvatarContainer);
     playerDiv.appendChild(nameSpan);
 
-    //console.log('Adding Player Div',playerDiv)
-
     //Spieler Teamcontainer hinzufügen (ChatGPT)
     //Fehler war player"s"Div wurde übergeben :/
     playersDiv.appendChild(playerDiv);
     playerTeam = teamElement;
+    globalPlayerIndex++;
 }

@@ -1,5 +1,5 @@
 // default bots
-const gamePin = null;
+let gamePin = null;
 const bots = {
     player1: {
         name: "Herbert",
@@ -278,9 +278,6 @@ function buildAvatar(player, target) {
     `;
 }
 function setSelectedGame(pin){
-        let tempPin = parseInt(pin); //geht
-        console.log(tempPin);
-        gamePin = tempPin; //geht nd //???
-        console.log(gamePin);
+        gamePin = parseInt(pin); //geht jz //gamePin muss let & nicht const sein    
 }
 export { getPlayer, setPlayer, buildAvatar, isGame, getGames, getBots, setSelectedGame };

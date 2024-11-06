@@ -303,4 +303,4 @@ function getSelectedGame(pin){
     }
 }
 
-export { getPlayer, setPlayer, buildAvatar, isGame, getGames, getBots, setSelectedGame };
+export { getPlayer, setPlayer, buildAvatar, isGame, getGames, getBots, setSelectedGame, getSelectedGame };

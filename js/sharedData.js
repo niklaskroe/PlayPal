@@ -1,5 +1,5 @@
 // default bots
-let gamePin = null;
+
 const bots = {
     player1: {
         name: "Herbert",
@@ -161,7 +161,6 @@ const games = {
       teams: 4,
     },
 };
-
 // clear sessionStorage
 sessionStorage.clear();
 
@@ -243,7 +242,7 @@ function getGames() {
     }
 
     if (gameData.trim() === "") {
-        console.error("Stored gane data is empty")
+        console.error("Stored game data is empty")
         return null;
     }
 
@@ -277,7 +276,31 @@ function buildAvatar(player, target) {
         <img class="avatarSvg accessory" src="${accessorySrc}" alt="Accessory ${accessoryId}">
     `;
 }
+
 function setSelectedGame(pin){
-        gamePin = parseInt(pin); //geht jz //gamePin muss let & nicht const sein    
+    sessionStorage.setItem("selectedGame", JSON.stringify(pin))    
 }
+
+function getSelectedGame(pin){
+    let gamePin = sessionStorage.getItem("selectedGame");
+
+    if (!gamePin) {
+        console.warn("No selected game data found in sessionStorage");
+        return null;
+    }
+
+    if (gamePin.trim() === "") {
+        console.error("Stored game data is empty")
+        return null;
+    }
+
+    try {
+        const game = JSON.parse(gamePin);
+        return game;
+    } catch (error) {
+        console.error("JSON parser ERROR: game data", error);
+        return null;
+    }
+}
+
 export { getPlayer, setPlayer, buildAvatar, isGame, getGames, getBots, setSelectedGame };

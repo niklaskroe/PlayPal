@@ -1,5 +1,4 @@
 // default bots
-
 const bots = {
     player1: {
         name: "Herbert",
@@ -122,12 +121,14 @@ const bots = {
         accessory: 4
     }
 };
+
 // data of player
 const player = {
     name: "Torben",
     character: 2,
     accessory: 4
-}
+};
+
 // available game sessions
 const games = {
     game1: {
@@ -161,6 +162,7 @@ const games = {
       teams: 4,
     },
 };
+
 // clear sessionStorage
 sessionStorage.clear();
 
@@ -281,7 +283,7 @@ function setSelectedGame(pin){
     sessionStorage.setItem("selectedGame", JSON.stringify(pin))    
 }
 
-function getSelectedGame(pin){
+function getSelectedGame(){
     let gamePin = sessionStorage.getItem("selectedGame");
 
     if (!gamePin) {

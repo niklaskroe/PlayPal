@@ -80,7 +80,7 @@ function loadTeams(pin) {
                 }
 
                 // Avatar bauen
-                //buildAvatar(player, `#avatar-${globalPlayerIndex}`);
+                //buildAvatar(player, botAvatarContainer);
 
                 const nameSpan = document.createElement('span');
                 nameSpan.classList.add('teamPlayerName');
@@ -203,7 +203,7 @@ function joinTeam(teamElement) {
 
     //Namen
     const nameSpan = document.createElement('span');
-    nameSpan.classList.add('teamPlayerName');
+    nameSpan.classList.add('teamPlayerNameUser');
     nameSpan.textContent = playerData.name;
 
     //Player div updaten

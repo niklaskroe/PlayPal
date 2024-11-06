@@ -326,6 +326,14 @@ main {
     align-items: center;
 }
 
+.teamPlayerNameUser {
+    margin-top: 2.4em;
+    margin-left: 0.5em;
+    font-size: 1em;
+    padding: 0.4em;
+    border: solid rgba(217, 70, 122, 1);
+}
+
 .teamPlayerName {
     margin-top: 2.4em;
     margin-left: 0.5em;
@@ -356,6 +364,9 @@ main {
     box-sizing: border-box;
     border-radius: 1em;
     box-shadow: none;
+    border: none;
+    background-color: rgba(217,70,122,1);
+    color: white;
 }
 
 .teamAvatarContainer {

@@ -1,4 +1,5 @@
 // default bots
+const gamePin = null;
 const bots = {
     player1: {
         name: "Herbert",
@@ -276,5 +277,10 @@ function buildAvatar(player, target) {
         <img class="avatarSvg accessory" src="${accessorySrc}" alt="Accessory ${accessoryId}">
     `;
 }
-
-export { getPlayer, setPlayer, buildAvatar, isGame, getGames, getBots };
+function setSelectedGame(pin){
+        let tempPin = parseInt(pin); //geht
+        console.log(tempPin);
+        gamePin = tempPin; //geht nd //???
+        console.log(gamePin);
+}
+export { getPlayer, setPlayer, buildAvatar, isGame, getGames, getBots, setSelectedGame };

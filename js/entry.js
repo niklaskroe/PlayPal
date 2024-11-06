@@ -1,4 +1,4 @@
-import { isGame, setPlayer /*, setSelectedGame*/ } from "./sharedData.js";
+import { isGame, setPlayer, setSelectedGame } from "./sharedData.js";
 
 const button = document.getElementById('startButton');
 let conditionPlayer = false;
@@ -82,7 +82,7 @@ document.getElementById('pinInput').addEventListener('input', (event) => {
 button.addEventListener('click', function() {
     let pin = parseInt(code);
     if(isGame(pin)){
-       // setSelectedGame(pin);
+        setSelectedGame(pin);
         const htmxLink = document.querySelector('[hx-get="/pages/avatar/avatar.html"]');
     // HTMX-Request manuell auslösen
         htmx.ajax('GET', '/pages/avatar/avatar.html', {

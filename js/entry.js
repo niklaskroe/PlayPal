@@ -1,4 +1,4 @@
-import { isGame, setPlayer } from "./sharedData.js";
+import { isGame, setPlayer /*, setSelectedGame*/ } from "./sharedData.js";
 
 const button = document.getElementById('startButton');
 let conditionPlayer = false;
@@ -41,6 +41,7 @@ document.getElementById('nameInput').addEventListener('input', (event) => {
         nameInput.classList.remove('inputTrue');
         nameInput.classList.add('inputFalse');
         conditionPlayer = false;
+        updateButton();
     } else {
         nameInput.classList.remove('inputFalse');
         nameInput.classList.add('inputTrue');
@@ -51,6 +52,7 @@ document.getElementById('nameInput').addEventListener('input', (event) => {
     if (nameInput.value.length==0){
         nameInput.classList.remove('inputFalse');
         nameInput.classList.remove('inputTrue');
+        updateButton();
         conditionPlayer = false;
     }
 });
@@ -61,6 +63,7 @@ document.getElementById('pinInput').addEventListener('input', (event) => {
         pinInput.classList.remove('inputTrue');
         pinInput.classList.add('inputFalse');
         conditionPin = false;
+        updateButton();
     } else {
         pinInput.classList.remove('inputFalse');
         pinInput.classList.add('inputTrue');
@@ -71,6 +74,7 @@ document.getElementById('pinInput').addEventListener('input', (event) => {
     if (pinInput.value.length==0){
         pinInput.classList.remove('inputFalse');
         pinInput.classList.remove('inputTrue');
+        updateButton();
         conditionPin = false;
     }
 });
@@ -78,6 +82,7 @@ document.getElementById('pinInput').addEventListener('input', (event) => {
 button.addEventListener('click', function() {
     let pin = parseInt(code);
     if(isGame(pin)){
+       // setSelectedGame(pin);
         const htmxLink = document.querySelector('[hx-get="/pages/avatar/avatar.html"]');
     // HTMX-Request manuell auslösen
         htmx.ajax('GET', '/pages/avatar/avatar.html', {

@@ -1,4 +1,4 @@
-import { getPlayer, getBots, getGames, buildAvatar } from '/js/sharedData.js';
+import { getPlayer, getBots, getGames, buildAvatar, getSelectedGame } from '/js/sharedData.js';
 //Daten aus der sharedData.js
 const playerData = getPlayer();
 const botsData = getBots();
@@ -9,7 +9,9 @@ let globalPlayerIndex = 0;
 
 //Spiele-Pin
 const gamePinDisplay = document.getElementById('gamePinDisplay');
-let pin = JSON.parse(sessionStorage.getItem("player"))?.pin || '222222';
+//Get PIN of selectedGame Object
+let pin = getSelectedGame() || '222222';
+console.log('Pin:',pin);
 gamePinDisplay.textContent = pin;
 
 if (playerData) {
@@ -52,6 +54,7 @@ function loadTeams(pin) {
 
             const teamTitle = document.createElement('h2');
             teamTitle.textContent = teamName;
+            teamTitle.classList.add('teamTitle')
 
             const playersDiv = document.createElement('div');
             playersDiv.classList.add('teamPlayers');
@@ -99,7 +102,8 @@ function loadTeams(pin) {
             const teamButton = document.createElement('button');
             teamButton.classList.add('teamButton');
             teamButton.textContent = 'Beitreten';
-            teamButtonContainer.appendChild(teamButton);
+
+            teamButtonContainer.appendChild(teamButton)
 
             teamDiv.appendChild(teamTitle);
             teamDiv.appendChild(playersDiv);
@@ -199,11 +203,10 @@ function joinTeam(teamElement) {
         `;
     }
     //Avatar bauen
-    //buildAvatar(playerData, `#avatar-${globalPlayerIndex}`);
 
     //Namen
     const nameSpan = document.createElement('span');
-    nameSpan.classList.add('teamPlayerNameUser');
+    nameSpan.classList.add('teamPlayerName');
     nameSpan.textContent = playerData.name;
 
     //Player div updaten
@@ -213,6 +216,7 @@ function joinTeam(teamElement) {
     //Spieler Teamcontainer hinzufügen (ChatGPT)
     //Fehler war player"s"Div wurde übergeben :/
     playersDiv.appendChild(playerDiv);
+
     playerTeam = teamElement;
     globalPlayerIndex++;
 }

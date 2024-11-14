@@ -252,6 +252,12 @@ main {
     flex-wrap: wrap;
     gap: 1em;
     align-content: flex-center;
+    /*Idee
+    align-content: flex-start;
+    justify-content: center;
+    Kuss Torbi
+    */
+
 }
 
 .avatarItem {
@@ -268,57 +274,72 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 0;
+    padding: 1em;
+    background: linear-gradient(180deg, rgba(241,193,72,1) 0%, rgba(229,132,61,1) 50%, rgba(217,70,122,1) 100%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .teamContainer {
     background-color: white;
     padding: 1em;
-    margin: 10em;
     border-radius: 1em;
-    display: inline-block;
-    width: 80%;
+    width: 100%;
+    max-width: 1200px;
     box-sizing: border-box;
+    margin: auto;
+}
+
+.gamePinH2 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.5em;
 }
 
 .teamFlexContainer {
     display: flex;
+    justify-content: center;
 }
 
 .teamSelection {
     background-color: white;
     box-shadow: inset 0 0 5px black;
     padding: 1em;
-    margin-top: 1em;
     border-radius: 1em;
     width: 100%;
 
     /* scrollable */
-    height: 40em;
-    max-width: 100%;
+    max-height: 80vh;
     overflow-y: auto;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1em;
 }
 
 .team {
-    flex: 100%;
-    margin: 0.5em;
     background-color: #fff;
     box-shadow: 0 0 5px black;
     border-radius: 8px;
     padding: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.teamTitle {
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 0.8em;
 }
 
 .teamPlayers {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 15px;
     margin-top: 10px;
+    flex-grow: 1;
 }
 
 .teamPlayer {
@@ -326,58 +347,68 @@ main {
     align-items: center;
 }
 
-.teamPlayerNameUser {
-    margin-top: 2.4em;
-    margin-left: 0.5em;
-    font-size: 1em;
-    padding: 0.4em;
-    border: solid rgba(217, 70, 122, 1);
+.teamPlayerNameUser,
+.teamPlayerName{
+    margin-left: 0.8em;
+    font-size: 1.1em;
 }
 
-.teamPlayerName {
-    margin-top: 2.4em;
-    margin-left: 0.5em;
-    font-size: 1em;
+.teamPlayerNameUser {
+    padding: 0.4em;
+    border: solid rgba(217,70,122,1);
 }
 
 .teamAvatar {
-    width: 3em;
-    height: 3em;
-
+    width: 3.5em;
+    height: 3.5em;
     position: relative;
     overflow: hidden;
-    margin: 2em auto auto;
 }
 
 .teamButtonContainer {
-    display: flex;
-    justify-content: flex-end;
     margin-top: 1em;
 }
 
 .teamButton {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    font-size: 14pt;
-    margin-top: 0.5em;
-    width: 17em;
+    width: 100%;
+    padding: 0.6em;
+    font-size: 1em;
     box-sizing: border-box;
     border-radius: 1em;
-    box-shadow: none;
     border: none;
     background-color: rgba(217,70,122,1);
     color: white;
+    cursor: pointer;
 }
+/*
+Sizing for Smartphones and small Tablets
+*/
+@media (max-width: 768px) {
+    .teamContainer {
+        padding: 1em;
+        margin: 1em;
+        width: calc(100% - 2em);
+    }
 
-.teamAvatarContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .teamSelection {
+        grid-template-columns: 1fr;
+    }
 
-    background-color: white;
-    padding: 1em;
-    margin: 2em auto;
-    border-radius: 1em;
-    max-width: 50vw;
-    width: 100%;
+    .teamTitle {
+        font-size: 1.6em;
+    }
+
+    .teamPlayerName {
+        font-size: 1.2em;
+    }
+
+    .teamAvatar {
+        width: 4em;
+        height: 4em;
+    }
+
+    .teamButton {
+        font-size: 1.1em;
+        padding: 0.8em;
+    }
 }

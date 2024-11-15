@@ -1,4 +1,5 @@
 import { getPlayer, getBots, getGames, buildAvatar, getSelectedGame } from '/js/sharedData.js';
+htmx.on('htmx:load', (event) => {
 console.log("Script Started!");
 //Laden sobald DomContentLoaded
 function initializeTeams(){
@@ -240,3 +241,4 @@ window.addEventListener('load', function (){
     }
 })
 console.log("Script ended");
+})

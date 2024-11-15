@@ -151,6 +151,9 @@ main {
     font-weight: bold;
 }
 
+@media (max-width: 360px) {
+    
+}
 
 /* Avatar */
 

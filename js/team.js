@@ -47,78 +47,128 @@ htmx.on('htmx:load', (event) => {
             // Leerer Team-Container
             teamContainer.innerHTML = '';
 
-            for (let i = 0; i < teamsCount; i++) {
-                const teamName = `Team ${String.fromCharCode(65 + i)}`; // Team A, B, C, ...
-                const players = getPlayersForTeam(i, teamsCount, totalPlayers); // Bots für die Teams
-
-                const teamDiv = document.createElement('div');
-                teamDiv.classList.add('team');
-
-                const teamTitle = document.createElement('h2');
-                teamTitle.textContent = teamName;
-                teamTitle.classList.add('teamTitle')
-
+            if (teamsCount === 0){
+                //no Teams
                 const playersDiv = document.createElement('div');
-                playersDiv.classList.add('teamPlayers');
+                playersDiv.classList.add('teamPlayers', 'noTeams');
 
-                players.forEach((player) => {
-                    const playerDiv = document.createElement('div');
-                    playerDiv.classList.add('teamPlayer');
+                const playerDiv = createPlayerElement(playerData);
+                playersDiv.appendChild(playerDiv);
 
-                    const botAvatarContainer = document.createElement('div');
-                    botAvatarContainer.id = `avatar-${globalPlayerIndex}`; // Eindeutige ID
-                    botAvatarContainer.classList.add('teamAvatar');
+                //get players in case of no Teams
+                const players = getPlayersForTeam(0, 1, totalPlayers);
+                players.forEach((player) =>{
+                    const playerDiv = createPlayerElement(player);
+                    playersDiv.appendChild(playerDiv);
+                });
+                teamContainer.appendChild(playersDiv);
+            } else {
+                for (let i = 0; i < teamsCount; i++) {
+                    const teamName = `Team ${String.fromCharCode(65 + i)}`; // Team A, B, C, ...
+                    const players = getPlayersForTeam(i, teamsCount, totalPlayers); // Bots für die Teams
 
-                    console.log(`Building Bot Avatar for: ${player.name} with ID: ${botAvatarContainer.id}`);
+                    const teamDiv = document.createElement('div');
+                    teamDiv.classList.add('team');
 
-                    let characterId = player.character;
-                    let accessoryId = player.accessory;
+                    const teamTitle = document.createElement('h2');
+                    teamTitle.textContent = teamName;
+                    teamTitle.classList.add('teamTitle')
 
-                    let characterSrc = `/assets/avatar/character${characterId}.svg`;
-                    let accessorySrc = `/assets/avatar/accessory${accessoryId}.svg`;
+                    const playersDiv = document.createElement('div');
+                    playersDiv.classList.add('teamPlayers');
 
-                    if (botAvatarContainer) {
-                        botAvatarContainer.innerHTML = `
+                    players.forEach((player) => {
+                        const playerDiv = document.createElement('div');
+                        playerDiv.classList.add('teamPlayer');
+
+                        const botAvatarContainer = document.createElement('div');
+                        botAvatarContainer.id = `avatar-${globalPlayerIndex}`; // Eindeutige ID
+                        botAvatarContainer.classList.add('teamAvatar');
+
+                        console.log(`Building Bot Avatar for: ${player.name} with ID: ${botAvatarContainer.id}`);
+
+                        let characterId = player.character;
+                        let accessoryId = player.accessory;
+
+                        let characterSrc = `/assets/avatar/character${characterId}.svg`;
+                        let accessorySrc = `/assets/avatar/accessory${accessoryId}.svg`;
+
+                        if (botAvatarContainer) {
+                            botAvatarContainer.innerHTML = `
                     <img class="avatarSvg character" src="${characterSrc}" alt="Character ${characterId}">
                     <img class="avatarSvg accessory" src="${accessorySrc}" alt="Accessory ${accessoryId}">
                     `;
-                    }
+                        }
 
-                    // Avatar bauen
-                    //buildAvatar(player, botAvatarContainer);
+                        // Avatar bauen
+                        //buildAvatar(player, botAvatarContainer);
 
-                    const nameSpan = document.createElement('span');
-                    nameSpan.classList.add('teamPlayerName');
-                    nameSpan.textContent = player.name;
+                        const nameSpan = document.createElement('span');
+                        nameSpan.classList.add('teamPlayerName');
+                        nameSpan.textContent = player.name;
 
-                    playerDiv.appendChild(botAvatarContainer);
-                    playerDiv.appendChild(nameSpan);
-                    playersDiv.appendChild(playerDiv);
+                        playerDiv.appendChild(botAvatarContainer);
+                        playerDiv.appendChild(nameSpan);
+                        playersDiv.appendChild(playerDiv);
 
-                    globalPlayerIndex++;
-                });
+                        globalPlayerIndex++;
+                    });
 
-                const teamButtonContainer = document.createElement('div');
-                teamButtonContainer.classList.add('teamButtonContainer');
+                    const teamButtonContainer = document.createElement('div');
+                    teamButtonContainer.classList.add('teamButtonContainer');
 
-                const teamButton = document.createElement('button');
-                teamButton.classList.add('teamButton');
-                teamButton.textContent = 'Beitreten';
+                    const teamButton = document.createElement('button');
+                    teamButton.classList.add('teamButton');
+                    teamButton.textContent = 'Beitreten';
 
-                teamButtonContainer.appendChild(teamButton)
+                    teamButtonContainer.appendChild(teamButton)
 
-                teamDiv.appendChild(teamTitle);
-                teamDiv.appendChild(playersDiv);
-                teamDiv.appendChild(teamButtonContainer);
-                teamContainer.appendChild(teamDiv);
+                    teamDiv.appendChild(teamTitle);
+                    teamDiv.appendChild(playersDiv);
+                    teamDiv.appendChild(teamButtonContainer);
+                    teamContainer.appendChild(teamDiv);
+                }
+
+                addTeamButtonListeners();
             }
-
-            addTeamButtonListeners();
         } else {
             console.log('Kein Spiel mit dieser PIN gefunden.');
         }
     }
 
+    //create Players without teams
+    function createPlayerElement(player) {
+        const playerDiv = document.createElement('div');
+        playerDiv.classList.add('teamPlayer');
+
+        const botAvatarContainer = document.createElement('div');
+        botAvatarContainer.id = `avatar-${globalPlayerIndex}`;
+        botAvatarContainer.classList.add('teamAvatar');
+
+        console.log(`Building Bot Avatar for: ${player.name} with ID: ${botAvatarContainer.id}`);
+
+        let characterId = player.character;
+        let accessoryId = player.accessory;
+
+        let characterSrc = `/assets/avatar/character${characterId}.svg`;
+        let accessorySrc = `/assets/avatar/accessory${accessoryId}.svg`;
+
+        botAvatarContainer.innerHTML = `
+    <img class="avatarSvg character" src="${characterSrc}" alt="Character ${characterId}">
+    <img class="avatarSvg accessory" src="${accessorySrc}" alt="Accessory ${accessoryId}">
+    `;
+
+        const nameSpan = document.createElement('span');
+        nameSpan.classList.add('teamPlayerName');
+        nameSpan.textContent = player.name;
+
+        playerDiv.appendChild(botAvatarContainer);
+        playerDiv.appendChild(nameSpan);
+        globalPlayerIndex++;
+        return playerDiv;
+    }
+
+    //get Bot-Players for Game with Teams
     function getPlayersForTeam(teamIndex, totalTeams, totalPlayers) {
         const playerValues = Object.values(botsData);
         const players = [];

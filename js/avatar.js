@@ -1,48 +1,63 @@
 import { getPlayer, buildAvatar } from "./sharedData.js";
 
+document.addEventListener("htmx:afterSettle", function() {
+    loadCharacters();
+    loadAvatar();
+    loadEventListeners();
+});
+
 // load characters immediately
-(function loadCharacters() {
+function loadCharacters() {
     htmx.ajax('GET', '/pages/avatar/characters.html', {
         target: '#avatarContent',
         swap: 'innerHTML'
     });
-})();
+};
+
+function loadEventListeners() {
+    // tab listener
+    document.querySelectorAll('.avatarTab').forEach(tab => {
+        tab.addEventListener('click', (event) => {
+            selectTab(event.target.id);
+        });
+    });
+
+    document.querySelectorAll('.avatarItem').forEach(item => {
+        item.addEventListener('click', (event) => {
+            const selectedItem = event.target.closest('.avatarItem').id;
+            updateAvatar(selectedItem);
+            buildAvatar(getPlayer(), 'avatarPlayer');
+        });
+    });
+};
+
+document.addEventListener("htmx:afterRequest", function(event) {
+    if (event.detail.target.id === "avatarContent") {
+        console.log("HTMX-Request erfolgreich für avatarContent:", event);
+    }
+});
+
 
 // change tab appearance on selection
 function selectTab(selectedTabId) {
+    console.log(selectedTabId);
     let tabs = document.querySelectorAll('.avatarTab');
-    
+
     tabs.forEach(tab => {
         tab.classList.remove('selected');
     });
 
     let selectedTab = document.getElementById(selectedTabId);
     selectedTab.classList.add('selected');
+    console.log(selectedTab.classList.value);
 }
 
-document.querySelectorAll('.avatarTab').forEach(tab => {
-    tab.addEventListener('click', (event) => {
-        selectTab(event.target.id);
-    });
-});
-
 // avatarItem selection
-(function() {
+function loadAvatar() {
     buildAvatar(getPlayer(), 'avatarPlayer');
+};
 
-    document.querySelectorAll('.avatarItem').forEach(item => {
-        item.addEventListener('click', (event) => {
-            const selectedItem = event.target.closest('.avatarItem').id;
-            updateAvatar(selectedItem);
-
-            buildAvatar(getPlayer(), 'avatarPlayer');
-        });
-    });
-})();
-
-// each item has an id, saving both ids of the character and accessory in an object model
-// avatar is being built separately by getting all components with the right id --> avatarBuilder
-// building should happen in a generalized script to be available to all pages
+// updating avatar data
 function updateAvatar(selectedItem) {
     let player = getPlayer();
 

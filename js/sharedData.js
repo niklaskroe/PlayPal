@@ -287,12 +287,12 @@ function getSelectedGame(){
     let gamePin = sessionStorage.getItem("selectedGame");
 
     if (!gamePin) {
-        console.warn("No selected game data found in sessionStorage");
+        console.warn("No selected game found in sessionStorage");
         return null;
     }
 
     if (gamePin.trim() === "") {
-        console.error("Stored game data is empty")
+        console.error("Stored selected game is empty")
         return null;
     }
 

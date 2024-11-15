@@ -1,17 +1,19 @@
 import { getPlayer, buildAvatar } from "./sharedData.js";
 
-document.addEventListener("htmx:afterSettle", function() {
-    loadCharacters();
+let isRefresh = true;
+
+htmx.on('htmx:load', () => {
     loadAvatar();
     loadEventListeners();
+
+    // only load on refresh
+    if (isRefresh) {
+        loadContent('charactersTab');
+    }
 });
 
-// load characters immediately
-function loadCharacters() {
-    htmx.ajax('GET', '/pages/avatar/characters.html', {
-        target: '#avatarContent',
-        swap: 'innerHTML'
-    });
+function loadAvatar() {
+    buildAvatar(getPlayer(), 'avatarPlayer');
 };
 
 function loadEventListeners() {
@@ -19,9 +21,11 @@ function loadEventListeners() {
     document.querySelectorAll('.avatarTab').forEach(tab => {
         tab.addEventListener('click', (event) => {
             selectTab(event.target.id);
+            loadContent(event.target.id);
         });
     });
 
+    // avatarItem selection
     document.querySelectorAll('.avatarItem').forEach(item => {
         item.addEventListener('click', (event) => {
             const selectedItem = event.target.closest('.avatarItem').id;
@@ -31,16 +35,24 @@ function loadEventListeners() {
     });
 };
 
-document.addEventListener("htmx:afterRequest", function(event) {
-    if (event.detail.target.id === "avatarContent") {
-        console.log("HTMX-Request erfolgreich für avatarContent:", event);
-    }
-});
+function loadContent(selectedTabId) {
+    isRefresh = false;
 
+    if (selectedTabId === 'charactersTab') {
+        htmx.ajax('GET', '/pages/avatar/characters.html', {
+            target: '#avatarContent',
+            swap: 'innerHTML'
+        });
+    } else if (selectedTabId === 'accessoriesTab') {
+        htmx.ajax('GET', '/pages/avatar/accessories.html', {
+            target: '#avatarContent',
+            swap: 'innerHTML'
+        });
+    }
+}
 
 // change tab appearance on selection
 function selectTab(selectedTabId) {
-    console.log(selectedTabId);
     let tabs = document.querySelectorAll('.avatarTab');
 
     tabs.forEach(tab => {
@@ -49,13 +61,7 @@ function selectTab(selectedTabId) {
 
     let selectedTab = document.getElementById(selectedTabId);
     selectedTab.classList.add('selected');
-    console.log(selectedTab.classList.value);
 }
-
-// avatarItem selection
-function loadAvatar() {
-    buildAvatar(getPlayer(), 'avatarPlayer');
-};
 
 // updating avatar data
 function updateAvatar(selectedItem) {

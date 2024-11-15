@@ -12,7 +12,7 @@ P = Pattern G = Gestaltungsregel
 
 ### 1. Durchgängige Farbnutzung
 
-- (P) Ähnlich wie bei den Screenshots (kahoot_enter_pin.png; kahoot_enter_name.png; quizezz_enter_pin.png; quizezz_entered_pin.png)
+- (P) Ähnlich wie bei den Screenshots (example screenshots/kahoot/kahoot_enter_pin.png)
 soll ein kräftiges, konsistentes Farbschema auf allen Bildschirmseiten, wie bei Kahoot das kräftige Lila verwendet werden.
 
 - (G) Es soll ein unverwechselbares auffallendes Farbschema gewählt werden, welches den Wiedererkennungswert der Website zu verbessern.

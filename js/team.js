@@ -1,9 +1,6 @@
 import { getPlayer, getBots, getGames, buildAvatar, getSelectedGame } from '/js/sharedData.js';
 htmx.on('htmx:load', (event) => {
-console.log("Script Started!");
-//Laden sobald DomContentLoaded
-function initializeTeams(){
-    console.log("Initializing Teams!");
+
 //Daten aus der sharedData.js
     const playerData = getPlayer();
     const botsData = getBots();
@@ -225,20 +222,5 @@ function initializeTeams(){
         playerTeam = teamElement;
         globalPlayerIndex++;
     }
-}
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeTeams);
-} else {
-    initializeTeams();
-}
-//DOM Funkt nicht
-window.addEventListener('load', function (){
-    console.log("Fenster Laden");
-    if (!document.querySelector('.team')) {
-        console.log("Teams not loaded, initializing now");
-        initializeTeams();
-    }
-})
-console.log("Script ended");
 })

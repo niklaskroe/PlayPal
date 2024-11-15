@@ -316,7 +316,7 @@ main {
     flex-direction: column;
     background-color: white;
     border-radius: 1em;
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
     height: 100%;
     margin: 3em auto;
@@ -359,12 +359,13 @@ main {
 .teamSelection:not(.noTeams) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1em;
 }
 
 .team {
     background-color: #fff;
-    box-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
     display: flex;

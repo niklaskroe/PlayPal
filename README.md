@@ -2,9 +2,13 @@
 
 Eine Webseite für Lernspiele.
 
-## Design
+## Design - Scribbles
 
-siehe Example Screenshots
+<div style="display: flex; justify-content: space-between;">
+  <img src="design/entry.jpg" alt="entry example" width="250"/>
+  <img src="design/avatar.jpg" alt="entry example" width="250"/>
+  <img src="design/team.jpg" alt="entry example" width="250"/>
+</div>
 
 ## UI-Pattern und Gesaltungsregeln
 
@@ -12,44 +16,53 @@ P = Pattern G = Gestaltungsregel
 
 ### 1. Durchgängige Farbnutzung
 
-- (P) Ähnlich wie bei den Screenshots (example screenshots/kahoot/kahoot_enter_pin.png)
-soll ein kräftiges, konsistentes Farbschema auf allen Bildschirmseiten, wie bei Kahoot das kräftige Lila verwendet werden.
+- (P) Ähnlich wie bei den Screenshots soll ein kräftiges, konsistentes Farbschema auf allen Bildschirmseiten, wie bei Kahoot das kräftige Lila verwendet werden:
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="examples/kahoot/kahoot_enter_pin.png" alt="kahoot entry" width="500"/>
+  <img src="examples/quizezz/quizezz_enter_pin.png" alt="quizezz entry" width="500"/>
+</div>
 
 - (G) Es soll ein unverwechselbares auffallendes Farbschema gewählt werden, welches den Wiedererkennungswert der Website zu verbessern.
-Das Farbschema soll auf allen Bildschirmseiten eingehalten werden, um einen visuellen Zusammenhang zu vermitteln.
+
+- (G) Das Farbschema soll auf allen Bildschirmseiten eingehalten werden, um einen visuellen Zusammenhang zu vermitteln.
 
 ### 2. Hervorgehobene Eingabefelder und Beschriftungen
 
-- (P) Eingabefelder wie für Spiele-Pins oder den Namen werden groß, zentriert und zentral positioniert ähnlich wie in (kahoot_enter_pin.png).
-- (G) Wichtige Eingabefelder oder Anzeigen(z.B. Eingabe Pin/Name/Avatarauswahl) sollen in der Mitte des Bildschirms platziert werden. 
+- (P) Eingabefelder wie für Spiele-Pins oder den Namen werden groß, zentriert und zentral positioniert ähnlich wie hier:
 
-Außerdem soll immer genügend Platz um die Komponenten sein. So soll sofort klar werden, was von dem Nutzer erwartet wird. 
+<img src="examples/kahoot/kahoot_enter_pin.png" alt="kahoot entry" width="500"/>
+
+- (G) Wichtige Eingabefelder oder Anzeigen(z.B. Eingabe der Pin, Name, Avatar- und Teamauswahl) sollen in der Mitte des Bildschirms platziert werden. 
+
+- (G) Außerdem soll immer genügend Platz um die Komponenten sein. So soll sofort klar werden, was von dem Nutzer erwartet wird. 
 
 ### 3. CTA Buttons deutlich hervorgehoben
 
-- (P) Jeder Bildschirm hat neben der vom Nutzer erwarteten Eingabe/Aktion einen klar hervorgehobenen/erkennbaren Call-to-Action Button. (kahoot_enter_pin.png klarer pinker CTA-Button)
-- (G) Neben Eingabe/Aktionsfeldern soll ein einzelner klarer CTA-Button sein. Der Button sollte sich in Farbe und Größe von dem Rest der Komponente
-hervorheben, um leicht zu finden und gut zu sehen zu sein. Die Beschriftungen des Button sollen Bildlich gesprochen und klar verständlich sein.
+- (P) Jeder Bildschirm hat neben der vom Nutzer erwarteten Eingabe/Aktion einen klar hervorgehobenen/erkennbaren Call-to-Action Button (bspw. lila).
+
+- (G) Neben Eingabe/Aktionsfeldern soll ein einzelner klarer CTA-Button sein. Der Button sollte sich in Farbe und Größe von dem Rest der Komponente hervorheben, um leicht zu finden und gut zu sehen zu sein. Die Beschriftungen des Button sollen Bildlich gesprochen und klar verständlich sein.
 
 ### 4. Feedback bei Fehlern
 
-- (P) Bei Quizizz wird bei einem ungültigen Code eine Fehlermeldung in Rot ("Ungültiger Spielcode") angezeigt (quizezz.entered_pin.png)
-- (G) Bei Auftritt eines Fehlers soll dem Nutzer sofortiges Feedback gegeben werden, z.B. bei der Eingabe eines ungültigen Spiele-Pins.
+- (P) Bei Quizizz wird bei einem ungültigen Code eine Fehlermeldung in Rot ("Ungültiger Spielcode") angezeigt:
 
-Hierfür sollen kontrastreiche Farben verwendet werden (rot bei quizizz, weil Rot=fehler), um den Nutzer auf seinen Fehler aufmerksam zu machen. 
-So kann der Nutzer seinen Fehler selbst erkennen und korrigieren.
+<img src="examples/quizezz/quizezz_entered_pin.png" alt="quizezz entry" width="500"/>
+  
+- (G) Bei Auftritt eines Fehlers soll dem Nutzer sofortiges Feedback gegeben werden, z.B. bei der Eingabe eines ungültigen Spiele-Pins. Hierfür sollen kontrastreiche Farben verwendet werden (rot bei quizizz, weil Rot=fehler), um den Nutzer auf seinen Fehler aufmerksam zu machen. So kann der Nutzer seinen Fehler selbst erkennen und korrigieren.
 
 ### 5. Responsive Gestaltung
 
-- (P) Sowohl bei kahoot als auch bei quizizz werden große Texte und Buttons verwendet, was es auf verschiedenen Geräten leichter erkennbar macht. 
+- (P) Sowohl bei kahoot als auch bei quizizz werden große Texte und Buttons verwendet, was es auf verschiedenen Geräten leichter erkennbar macht. Diese Elemente sind nicht statisch sondern passen sich der Bildschirmauflösung an:
 
-Diese Elemente sind nicht statisch sondern passen sich der Bildschirmauflösung an (siehe kahoot_avatar.png und kahoot_avatar_mobile.png).
+<div style="display: flex; justify-content: space-between;">
+  <img src="examples/kahoot/kahoot_avatar.png" alt="kahoot avatar desktop" height="300"/>
+  <img src="examples/kahoot/kahoot_avatar_mobile.PNG" alt="kahoot avatar mobile" height="300"/>
+</div>
 
-- (G) Es soll darauf geachtet werden ein responsive design, welches große und gut klickbare Buttons, sowie lesbare Textgrößen für bessere
+- (G) Es soll darauf geachtet werden ein responsive design, welches große und gut klickbare Buttons, sowie lesbare Textgrößen für bessere Sichtbarkeit anbietet. Besonders wichtig bei Lernspielen, da Nutzer auf den verschiedensten Geräten am Spiel teilnehmen. 
 
-Sichtbarkeit anbietet. Besonders wichtig bei Lernspielen, da Nutzer auf den verschiedensten Geräten am Spiel teilnehmen. 
-
-## Aufbau 
+## Aufbau
 
 ### Spielbeitritt via PIN (Justin)
 

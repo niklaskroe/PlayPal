@@ -10,39 +10,43 @@ siehe Example Screenshots
 
 P = Pattern G = Gestaltungsregel
 
-### Durchgängige Farbnutzung
+### 1. Durchgängige Farbnutzung
 
-1. (P) Ähnlich wie bei den Screenshots (kahoot_enter_pin.png; kahoot_enter_name.png; quizezz_enter_pin.png; quizezz_entered_pin.png)
+- (P) Ähnlich wie bei den Screenshots (kahoot_enter_pin.png; kahoot_enter_name.png; quizezz_enter_pin.png; quizezz_entered_pin.png)
 soll ein kräftiges, konsistentes Farbschema auf allen Bildschirmseiten, wie bei Kahoot das kräftige Lila verwendet werden.
 
-1. (G) Es soll ein unverwechselbares auffallendes Farbschema gewählt werden, welches den Wiedererkennungswert der Website zu verbessern.
+- (G) Es soll ein unverwechselbares auffallendes Farbschema gewählt werden, welches den Wiedererkennungswert der Website zu verbessern.
 Das Farbschema soll auf allen Bildschirmseiten eingehalten werden, um einen visuellen Zusammenhang zu vermitteln.
 
 ### Hervorgehobene Eingabefelder und Beschriftungen
 
-2. (P) Eingabefelder wie für Spiele-Pins oder den Namen werden groß, zentriert und zentral positioniert ähnlich wie in (kahoot_enter_pin.png).
-2. (G) Wichtige Eingabefelder oder Anzeigen(z.B. Eingabe Pin/Name/Avatarauswahl) sollen in der Mitte des Bildschirms platziert werden. 
+- (P) Eingabefelder wie für Spiele-Pins oder den Namen werden groß, zentriert und zentral positioniert ähnlich wie in (kahoot_enter_pin.png).
+- (G) Wichtige Eingabefelder oder Anzeigen(z.B. Eingabe Pin/Name/Avatarauswahl) sollen in der Mitte des Bildschirms platziert werden. 
+
 Außerdem soll immer genügend Platz um die Komponenten sein. So soll sofort klar werden, was von dem Nutzer erwartet wird. 
 
 ### CTA Buttons deutlich hervorgehoben
 
-3. (P) Jeder Bildschirm hat neben der vom Nutzer erwarteten Eingabe/Aktion einen klar hervorgehobenen/erkennbaren Call-to-Action Button. 
-(kahoot_enter_pin.png klarer pinker CTA-Button)
-3. (G) Neben Eingabe/Aktionsfeldern soll ein einzelner klarer CTA-Button sein. Der Button sollte sich in Farbe und Größe von dem Rest der Komponente
+- (P) Jeder Bildschirm hat neben der vom Nutzer erwarteten Eingabe/Aktion einen klar hervorgehobenen/erkennbaren Call-to-Action Button. (kahoot_enter_pin.png klarer pinker CTA-Button)
+- (G) Neben Eingabe/Aktionsfeldern soll ein einzelner klarer CTA-Button sein. Der Button sollte sich in Farbe und Größe von dem Rest der Komponente
 hervorheben, um leicht zu finden und gut zu sehen zu sein. Die Beschriftungen des Button sollen Bildlich gesprochen und klar verständlich sein.
 
 ### Feedback bei Fehlern
 
-4. (P) Bei Quizizz wird bei einem ungültigen Code eine Fehlermeldung in Rot ("Ungültiger Spielcode") angezeigt (quizezz.entered_pin.png)
-4. (G) Bei Auftritt eines Fehlers soll dem Nutzer sofortiges Feedback gegeben werden, z.B. bei der Eingabe eines ungültigen Spiele-Pins.
+- (P) Bei Quizizz wird bei einem ungültigen Code eine Fehlermeldung in Rot ("Ungültiger Spielcode") angezeigt (quizezz.entered_pin.png)
+- (G) Bei Auftritt eines Fehlers soll dem Nutzer sofortiges Feedback gegeben werden, z.B. bei der Eingabe eines ungültigen Spiele-Pins.
+
 Hierfür sollen kontrastreiche Farben verwendet werden (rot bei quizizz, weil Rot=fehler), um den Nutzer auf seinen Fehler aufmerksam zu machen. 
 So kann der Nutzer seinen Fehler selbst erkennen und korrigieren.
 
 ### Responsive Gestaltung
 
-5. (P) Sowohl bei kahoot als auch bei quizizz werden große Texte und Buttons verwendet, was es auf verschiedenen Geräten leichter erkennbar macht. 
+- (P) Sowohl bei kahoot als auch bei quizizz werden große Texte und Buttons verwendet, was es auf verschiedenen Geräten leichter erkennbar macht. 
+
 Diese Elemente sind nicht statisch sondern passen sich der Bildschirmauflösung an (siehe kahoot_avatar.png und kahoot_avatar_mobile.png).
-5. (G) Es soll darauf geachtet werden ein responsive design, welches große und gut klickbare Buttons, sowie lesbare Textgrößen für bessere
+
+- (G) Es soll darauf geachtet werden ein responsive design, welches große und gut klickbare Buttons, sowie lesbare Textgrößen für bessere
+
 Sichtbarkeit anbietet. Besonders wichtig bei Lernspielen, da Nutzer auf den verschiedensten Geräten am Spiel teilnehmen. 
 
 ## Aufbau 

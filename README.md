@@ -18,20 +18,20 @@ soll ein kräftiges, konsistentes Farbschema auf allen Bildschirmseiten, wie bei
 - (G) Es soll ein unverwechselbares auffallendes Farbschema gewählt werden, welches den Wiedererkennungswert der Website zu verbessern.
 Das Farbschema soll auf allen Bildschirmseiten eingehalten werden, um einen visuellen Zusammenhang zu vermitteln.
 
-### Hervorgehobene Eingabefelder und Beschriftungen
+### 2. Hervorgehobene Eingabefelder und Beschriftungen
 
 - (P) Eingabefelder wie für Spiele-Pins oder den Namen werden groß, zentriert und zentral positioniert ähnlich wie in (kahoot_enter_pin.png).
 - (G) Wichtige Eingabefelder oder Anzeigen(z.B. Eingabe Pin/Name/Avatarauswahl) sollen in der Mitte des Bildschirms platziert werden. 
 
 Außerdem soll immer genügend Platz um die Komponenten sein. So soll sofort klar werden, was von dem Nutzer erwartet wird. 
 
-### CTA Buttons deutlich hervorgehoben
+### 3. CTA Buttons deutlich hervorgehoben
 
 - (P) Jeder Bildschirm hat neben der vom Nutzer erwarteten Eingabe/Aktion einen klar hervorgehobenen/erkennbaren Call-to-Action Button. (kahoot_enter_pin.png klarer pinker CTA-Button)
 - (G) Neben Eingabe/Aktionsfeldern soll ein einzelner klarer CTA-Button sein. Der Button sollte sich in Farbe und Größe von dem Rest der Komponente
 hervorheben, um leicht zu finden und gut zu sehen zu sein. Die Beschriftungen des Button sollen Bildlich gesprochen und klar verständlich sein.
 
-### Feedback bei Fehlern
+### 4. Feedback bei Fehlern
 
 - (P) Bei Quizizz wird bei einem ungültigen Code eine Fehlermeldung in Rot ("Ungültiger Spielcode") angezeigt (quizezz.entered_pin.png)
 - (G) Bei Auftritt eines Fehlers soll dem Nutzer sofortiges Feedback gegeben werden, z.B. bei der Eingabe eines ungültigen Spiele-Pins.
@@ -39,7 +39,7 @@ hervorheben, um leicht zu finden und gut zu sehen zu sein. Die Beschriftungen de
 Hierfür sollen kontrastreiche Farben verwendet werden (rot bei quizizz, weil Rot=fehler), um den Nutzer auf seinen Fehler aufmerksam zu machen. 
 So kann der Nutzer seinen Fehler selbst erkennen und korrigieren.
 
-### Responsive Gestaltung
+### 5. Responsive Gestaltung
 
 - (P) Sowohl bei kahoot als auch bei quizizz werden große Texte und Buttons verwendet, was es auf verschiedenen Geräten leichter erkennbar macht. 
 

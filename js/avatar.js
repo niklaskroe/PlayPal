@@ -1,20 +1,21 @@
-import { getPlayer, buildAvatar } from "./sharedData.js";
+import { getPlayer, buildAvatar, setPlayer } from "./sharedData.js";
 
 let isRefresh = true;
 
 htmx.on('htmx:load', () => {
     loadAvatar();
-    loadEventListeners();
 
     // only load on refresh
     if (isRefresh) {
         loadContent('charactersTab');
     }
+
+    loadEventListeners();
 });
 
 function loadAvatar() {
     buildAvatar(getPlayer(), 'avatarPlayer');
-};
+}
 
 function loadEventListeners() {
     // tab listener
@@ -25,15 +26,19 @@ function loadEventListeners() {
         });
     });
 
-    // avatarItem selection
-    document.querySelectorAll('.avatarItem').forEach(item => {
-        item.addEventListener('click', (event) => {
-            const selectedItem = event.target.closest('.avatarItem').id;
-            updateAvatar(selectedItem);
-            buildAvatar(getPlayer(), 'avatarPlayer');
-        });
+    // avatar item listener
+    document.addEventListener('htmx:afterSwap', (event) => {
+        if (event.detail.target.id === 'avatarContent') {
+            document.querySelectorAll('.avatarItem').forEach(item => {
+                item.addEventListener('click', (event) => {
+                    const selectedItem = event.target.closest('.avatarItem').id;
+                    updateAvatar(selectedItem);
+                    buildAvatar(getPlayer(), 'avatarPlayer');
+                });
+            });
+        }
     });
-};
+}
 
 function loadContent(selectedTabId) {
     isRefresh = false;

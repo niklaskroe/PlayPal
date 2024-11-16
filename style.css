@@ -485,7 +485,18 @@ main {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
+
+    .teamBody {
+        overflow: hidden;
+    }
+
+
+    .teamContainer {
+        height: 100vh;
+        overflow: hidden;
+    }
+
     .teamSelection.noTeams .teamPlayer {
         flex: 0 0 calc(50% - 1.5em);
     }

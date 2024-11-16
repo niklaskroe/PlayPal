@@ -105,6 +105,7 @@ htmx.on("htmx:load", (event) => {
                 conditionPin = true;
             } else {
                 button.textContent = "Game not found";
+                button.textContent = "Game not found";
             }
             
             updateButton();
@@ -123,10 +124,14 @@ htmx.on("htmx:load", (event) => {
 
     //Event-Listener for Button-Click
     button.addEventListener('click', function () {
+        let pin = parseInt(code);
+        //sets Game
+        setSelectedGame(pin);
+        //go to avatar         
         htmx.ajax('GET', '/pages/avatar/avatar.html', {
             target: '#mainContent',
             swap: 'innerHTML',
         });
     });
-
-})
+    
+});

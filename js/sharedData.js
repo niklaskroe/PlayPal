@@ -134,7 +134,7 @@ const games = {
     game1: {
         pin: 111111,
         playerCount: 8,
-        teams: 0,
+        teams: 2,
     },
     game2: {
       pin: 222222,
@@ -154,7 +154,7 @@ const games = {
     game5: {
       pin: 555555,
       playerCount: 23,
-      teams: 0,
+      teams: 4,
     },
     game6: {
       pin: 777777,

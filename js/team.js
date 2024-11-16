@@ -33,63 +33,45 @@ htmx.on('htmx:load', (event) => {
             // Empty Team-Container
             teamContainer.innerHTML = '';
 
-            if (teamsCount === 0) {
-                //no Teams
-                teamContainer.classList.add('noTeams')
-                const playersDiv = document.createElement('div');
-                playersDiv.classList.add('teamPlayers', 'noTeams');
+            for (let i = 0; i < teamsCount; i++) {
+                const teamName = `Team ${String.fromCharCode(65 + i)}`; // Team A, B, C, ...
+                const players = getPlayersForTeam(i, teamsCount, totalPlayers); // Bots for Teams
 
-                //get players in case of no Teams
-                const players = getPlayersForTeam(0, 1, totalPlayers);
+                const teamDiv = document.createElement('div');
+                teamDiv.classList.add('team');
+
+                const teamTitle = document.createElement('h2');
+                teamTitle.textContent = teamName;
+                teamTitle.classList.add('teamTitle')
+
+                const playersDiv = document.createElement('div');
+                playersDiv.classList.add('teamPlayers');
+
                 players.forEach((player) => {
                     const playerDiv = createPlayerElement(player);
                     playersDiv.appendChild(playerDiv);
                 });
-                const playerDiv = createPlayerElement(playerData);
-                playersDiv.appendChild(playerDiv);
-                teamContainer.appendChild(playersDiv);
-            } else {
-                teamContainer.classList.remove('noTeams');
-                for (let i = 0; i < teamsCount; i++) {
-                    const teamName = `Team ${String.fromCharCode(65 + i)}`; // Team A, B, C, ...
-                    const players = getPlayersForTeam(i, teamsCount, totalPlayers); // Bots for Teams
 
-                    const teamDiv = document.createElement('div');
-                    teamDiv.classList.add('team');
+                const teamButtonContainer = document.createElement('div');
+                teamButtonContainer.classList.add('teamButtonContainer');
 
-                    const teamTitle = document.createElement('h2');
-                    teamTitle.textContent = teamName;
-                    teamTitle.classList.add('teamTitle')
+                const teamButton = document.createElement('button');
+                teamButton.classList.add('teamButton');
+                teamButton.textContent = 'Beitreten';
+                teamButton.addEventListener('click', () => joinTeam(teamDiv, playerData));
+                teamButtonContainer.appendChild(teamButton)
 
-                    const playersDiv = document.createElement('div');
-                    playersDiv.classList.add('teamPlayers');
-
-                    players.forEach((player) => {
-                        const playerDiv = createPlayerElement(player);
-                        playersDiv.appendChild(playerDiv);
-                    });
-
-                    const teamButtonContainer = document.createElement('div');
-                    teamButtonContainer.classList.add('teamButtonContainer');
-
-                    const teamButton = document.createElement('button');
-                    teamButton.classList.add('teamButton');
-                    teamButton.textContent = 'Beitreten';
-                    teamButton.addEventListener('click', () => joinTeam(teamDiv, playerData));
-                    teamButtonContainer.appendChild(teamButton)
-
-                    teamDiv.appendChild(teamTitle);
-                    teamDiv.appendChild(playersDiv);
-                    teamDiv.appendChild(teamButtonContainer);
-                    teamContainer.appendChild(teamDiv);
-                }
+                teamDiv.appendChild(teamTitle);
+                teamDiv.appendChild(playersDiv);
+                teamDiv.appendChild(teamButtonContainer);
+                teamContainer.appendChild(teamDiv);
             }
         } else {
             console.log('Kein Spiel mit dieser PIN gefunden.');
         }
     }
 
-    //create Players without teams
+    //create Players
     function createPlayerElement(player) {
         const playerDiv = document.createElement('div');
         playerDiv.classList.add('teamPlayer');
@@ -144,29 +126,6 @@ htmx.on('htmx:load', (event) => {
         const button = teamElement.querySelector('.teamButton');
         button.disabled = true;
         playerTeam = teamElement;
-    }
-
-    //get Bot-Players for Game with Teams
-    function getPlayersForTeam(teamIndex, totalTeams, totalPlayers) {
-        const playerValues = Object.values(getBots());
-        const players = [];
-
-        //Players per team
-        const playersPerTeam = Math.floor(totalPlayers / totalTeams);
-        const startIndex = teamIndex * playersPerTeam;
-
-        //add Players to teams (bots)
-        for (let i = startIndex; i < startIndex + playersPerTeam; i++) {
-            if (playerValues[i]) {
-                players.push({
-                    name: playerValues[i].name,
-                    character: playerValues[i].character,
-                    accessory: playerValues[i].accessory
-                });
-            }
-        }
-        console.log(`bot-players ${teamIndex}`, players)
-        return players;
     }
 
     //get Bot-Players for Game with Teams

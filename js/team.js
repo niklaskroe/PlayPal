@@ -23,13 +23,17 @@ htmx.on('htmx:load', (event) => {
     // Load Teams based on PIN
     function loadTeams(pin) {
         console.log("Loading teams for pin:", pin);
+        console.log("Loading teams for pin:", pin);
         const selectedGame = Object.values(gamesData).find(game => game.pin == pin);
 
         if (selectedGame) {
             const teamsCount = selectedGame.teams; // Amount of Teams
             const totalPlayers = selectedGame.playerCount; // Amount of players (bots)
+            const teamsCount = selectedGame.teams; // Amount of Teams
+            const totalPlayers = selectedGame.playerCount; // Amount of players (bots)
             const teamContainer = document.querySelector('.teamSelection');
 
+            // Empty Team-Container
             // Empty Team-Container
             teamContainer.innerHTML = '';
 
@@ -53,6 +57,7 @@ htmx.on('htmx:load', (event) => {
                 for (let i = 0; i < teamsCount; i++) {
                     const teamName = `Team ${String.fromCharCode(65 + i)}`; // Team A, B, C, ...
                     const players = getPlayersForTeam(i, teamsCount, totalPlayers); // Bots for Teams
+                    const players = getPlayersForTeam(i, teamsCount, totalPlayers); // Bots for Teams
 
                     const teamDiv = document.createElement('div');
                     teamDiv.classList.add('team');
@@ -66,6 +71,7 @@ htmx.on('htmx:load', (event) => {
 
                     players.forEach((player) => {
                         const playerDiv = createPlayerElement(player);
+                        const playerDiv = createPlayerElement(player);
                         playersDiv.appendChild(playerDiv);
                     });
 
@@ -75,6 +81,7 @@ htmx.on('htmx:load', (event) => {
                     const teamButton = document.createElement('button');
                     teamButton.classList.add('teamButton');
                     teamButton.textContent = 'Beitreten';
+                    teamButton.addEventListener('click', () => joinTeam(teamDiv, playerData));
                     teamButton.addEventListener('click', () => joinTeam(teamDiv, playerData));
                     teamButtonContainer.appendChild(teamButton)
 
@@ -149,12 +156,15 @@ htmx.on('htmx:load', (event) => {
     //get Bot-Players for Game with Teams
     function getPlayersForTeam(teamIndex, totalTeams, totalPlayers) {
         const playerValues = Object.values(getBots());
+        const playerValues = Object.values(getBots());
         const players = [];
 
+        //Players per team
         //Players per team
         const playersPerTeam = Math.floor(totalPlayers / totalTeams);
         const startIndex = teamIndex * playersPerTeam;
 
+        //add Players to teams (bots)
         //add Players to teams (bots)
         for (let i = startIndex; i < startIndex + playersPerTeam; i++) {
             if (playerValues[i]) {

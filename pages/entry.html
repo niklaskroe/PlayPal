@@ -1,19 +1,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <body class="entryBody">
-    
     <div class="entryContainer">
         <div>
-            <input id="nameInput" class="entryItems"
+
+            <input id="nameInput" class="entryItems"  
                 style="text-align: center;"
                 required 
                 type="text" 
                 minlength="3"
                 maxlength="12"
                 name="player" 
-                placeholder="Name" > </input>
+                placeholder="Name" >
+             </input> <!-- Playername Input with 3-12 charcters  -->
+
         </div>
         <div>
+
             <input id="pinInput" class="entryItems"
                 style="text-align: center;"
                 required 
@@ -24,15 +27,16 @@
                 minlength="6"
                 maxlength="6"
                 name="pin" 
-                placeholder="Game-Pin" >
-        </input>
+                placeholder="Game-Pin" > 
+             </input> <!-- Pin Input with 6 numbers  --> <!-- onInput replaces every character except numbers -->
+
         </div>
-        <div>         
+        <div>      
+
             <button id="startButton" class="entryButton disabled">
-                
-                <a hx-get="/pages/avatar/avatar.html" hx-target="#content" hx-swap="innerHTML">Join</a> <!--if-Abfrage?-->
-                
-            </button>        
+                <a hx-get="/pages/avatar/avatar.html" hx-target="#content" hx-swap="innerHTML">Join</a> 
+            </button> 
+
         </div>
     <script type="module" src="js/entry.js"></script>  
 </body>

@@ -104,4 +104,5 @@ htmx.on("htmx:load", (event) => { //htmx Listener
             alert("Not found"); //Alert if game is not found
         }
     });
+    
 })

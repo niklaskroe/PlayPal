@@ -163,7 +163,7 @@ const games = {
     },
 };
 
-// clear sessionStorage
+// clear sessionStorage TODO for production
 sessionStorage.clear();
 
 // init default data

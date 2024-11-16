@@ -1,14 +1,13 @@
 import { isGame, setPlayer, setSelectedGame } from "./sharedData.js";
 htmx.on("htmx:load", (event) => {
     const button = document.getElementById('startButton');
-    
+
     if (!button) {
         return;
     }
 
     console.log("entry.js htmx:load event");
-    
-    //htmx Listener
+
     //Variables
     const nameInput = document.getElementById('nameInput');
     const pinInput = document.getElementById('pinInput');
@@ -19,7 +18,6 @@ htmx.on("htmx:load", (event) => {
 
     let conditionPlayer = false;
     let conditionPin = false;
-    let code = null; //for Code transfer
     const player = { //for Player transfer
         name: "",
         character: 0,
@@ -56,22 +54,30 @@ htmx.on("htmx:load", (event) => {
     //Event-Listener for Name-Input
     document.getElementById('nameInput').addEventListener('input', (event) => {
         const nameInput = event.target;
+        
         if (nameInput.value.length < 3) {
             nameInput.classList.remove('inputTrue'); //remove "InputTrue" Class
             nameInput.classList.add('inputFalse');  //add "InputFalse" Class
+            
             conditionPlayer = false;
+            
             updateButton();                         //checks Button
         } else {
             nameInput.classList.remove('inputFalse'); //remove "InputFalse" Class
             nameInput.classList.add('inputTrue');    //add "InputTrue" Class
+            
             conditionPlayer = true;
+            
             updateButton();                          //checks Button
+            
             setName(nameInput.value);
         }
         if (nameInput.value.length == 0) {
             nameInput.classList.remove('inputFalse');   //remove "InputFalse" Class
             nameInput.classList.remove('inputTrue');    //remove "InputTrue" Class
+            
             conditionPlayer = false;
+            
             updateButton();                             //checks Button
         }
     });
@@ -79,44 +85,53 @@ htmx.on("htmx:load", (event) => {
     //Event-Listener fpr Pin-Input (analog to Name-Input)
     document.getElementById('pinInput').addEventListener('input', (event) => {
         const pinInput = event.target;
+
         if (pinInput.value.length < 6) {
             button.textContent = "Join";
+
             pinInput.classList.remove('inputTrue');
             pinInput.classList.add('inputFalse');
+            
             conditionPin = false;
+            
             updateButton();
         } else {
             pinInput.classList.remove('inputFalse');
             pinInput.classList.add('inputTrue');
-            //code = pinInput.value;                      //sets code
+
             if (isGame(parseInt(pinInput.value))) {                  //checks if Pin has a Game
-                setSelectedGame(parseInt(pinInput.value));           //sets Game
+                setSelectedGame(parseInt(pinInput.value));          //sets Game
+                
                 conditionPin = true;
             } else {
-                    button.textContent = "Game not found";
+                button.textContent = "Game not found";
+                button.textContent = "Game not found";
             }
+            
             updateButton();
         }
         if (pinInput.value.length == 0) {
             button.textContent = "Join";
+            
             pinInput.classList.remove('inputFalse');
             pinInput.classList.remove('inputTrue');
+            
             conditionPin = false;
+            
             updateButton();
         }
     });
 
     //Event-Listener for Button-Click
     button.addEventListener('click', function () {
-        //let pin = parseInt(code);
-        //
-            htmx.ajax('GET', '/pages/avatar/avatar.html', {
-                target: '#mainContent',
-                swap: 'innerHTML',
-            });
-        /*} else {
-            alert("Not found"); //Alert if game is not found
-        }*/
+        let pin = parseInt(code);
+        //sets Game
+        setSelectedGame(pin);
+        //go to avatar         
+        htmx.ajax('GET', '/pages/avatar/avatar.html', {
+            target: '#mainContent',
+            swap: 'innerHTML',
+        });
     });
     
-})
+});

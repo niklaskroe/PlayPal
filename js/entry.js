@@ -1,13 +1,13 @@
 import { isGame, setPlayer, setSelectedGame } from "./sharedData.js";
 htmx.on("htmx:load", (event) => {
     const button = document.getElementById('startButton');
-    
+
     if (!button) {
         return;
     }
 
     console.log("entry.js htmx:load event");
-    
+
     //htmx Listener
     //Variables
     const nameInput = document.getElementById('nameInput');
@@ -88,12 +88,13 @@ htmx.on("htmx:load", (event) => {
         } else {
             pinInput.classList.remove('inputFalse');
             pinInput.classList.add('inputTrue');
-            //code = pinInput.value;                      //sets code
-            if (isGame(parseInt(pinInput.value))) {                  //checks if Pin has a Game
-                setSelectedGame(parseInt(pinInput.value));           //sets Game
+            //sets code
+            code = pinInput.value;
+            //checks if Pin has a Game                 
+            if (isGame(parseInt(pinInput.value))) {
                 conditionPin = true;
             } else {
-                    button.textContent = "Game not found";
+                button.textContent = "Game not found";
             }
             updateButton();
         }
@@ -108,15 +109,14 @@ htmx.on("htmx:load", (event) => {
 
     //Event-Listener for Button-Click
     button.addEventListener('click', function () {
-        //let pin = parseInt(code);
-        //
-            htmx.ajax('GET', '/pages/avatar/avatar.html', {
-                target: '#mainContent',
-                swap: 'innerHTML',
-            });
-        /*} else {
-            alert("Not found"); //Alert if game is not found
-        }*/
+        let pin = parseInt(code);
+        //sets Game
+        setSelectedGame(pin);
+        //go to avatar         
+        htmx.ajax('GET', '/pages/avatar/avatar.html', {
+            target: '#mainContent',
+            swap: 'innerHTML',
+        });
     });
-    
+
 })

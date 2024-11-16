@@ -287,8 +287,7 @@ main {
     width: 90%;
     max-width: 1200px;
     box-sizing: border-box;
-    /* Niklas fragen nach Idee */
-    margin: auto;
+    margin: 3em auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -312,6 +311,8 @@ main {
     /* scrollable */
     max-height: 80vh;
     overflow-y: auto;
+}
+.teamSelection:not(.noTeams) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1em;
@@ -378,57 +379,62 @@ main {
     cursor: not-allowed;
 }
 /* No Teams Players */
-.teamPlayers.noTeams {
+.teamSelection.noTeams {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
-    padding: 1em;
+    width: 100%;
 }
 
-.teamPlayers.noTeams .teamPlayer {
-    flex: 1 0 auto;
-    min-width: 100px;
-    max-width: calc(20% - 1em);
+.teamSelection.noTeams .teamPlayers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    padding: 1em;
+    width: 100%;
+    flex-direction: row;
+}
+
+.teamSelection.noTeams .teamPlayer {
+    flex: 0 0 calc(20% - 1.5em);
+    min-width: 120px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.teamPlayers.noTeams .teamAvatar {
+.teamSelection.noTeams .teamAvatar {
+    width: 3.5em;
+    height: 3.5em;
     margin-bottom: 0.5em;
 }
 
-.teamPlayers.noTeams .teamPlayerName {
+.teamSelection.noTeams .teamPlayerName {
     margin-left: 0;
+    font-size: 1em;
+    word-break: break-word;
 }
 
 /* responsive design */
 
 @media (max-width: 1200px) {
-    .teamPlayers.noTeams .teamPlayer {
-        max-width: calc(25% - 1em);
+    .teamSelection.noTeams .teamPlayer {
+        flex: 0 0 calc(25% - 1.5em);
     }
 }
 
 @media (max-width: 992px) {
-    .teamPlayers.noTeams .teamPlayer {
-        max-width: calc(33.333% - 1em);
+    .teamSelection.noTeams .teamPlayer {
+        flex: 0 0 calc(33.333% - 1.5em);
     }
 }
 
 @media (max-width: 768px) {
-    main {
-        padding: 1em 0;
-    }
-
     .teamContainer {
         padding: 1em;
         width: 95%;
     }
 
-    .teamSelection {
+    .teamSelection:not(.noTeams) {
         grid-template-columns: 1fr;
     }
 
@@ -450,13 +456,13 @@ main {
         padding: 0.8em;
     }
 
-    .teamPlayers.noTeams .teamPlayer {
-        flex-basis: calc(50% - 1em);
+    .teamSelection.noTeams .teamPlayer {
+        flex: 0 0 calc(33.333% - 1.5em);
     }
 }
 
-@media (max-width: 480px) {
-    .teamPlayers.noTeams .teamPlayer {
-        max-width: 100%;
+@media (max-width: 576px) {
+    .teamSelection.noTeams .teamPlayer {
+        flex: 0 0 calc(50% - 1.5em);
     }
 }

@@ -32,11 +32,9 @@ htmx.on('htmx:load', (event) => {
 
             if (teamsCount === 0){
                 //no Teams
+                teamContainer.classList.add('noTeams')
                 const playersDiv = document.createElement('div');
                 playersDiv.classList.add('teamPlayers', 'noTeams');
-
-                const playerDiv = createPlayerElement(playerData);
-                playersDiv.appendChild(playerDiv);
 
                 //get players in case of no Teams
                 const players = getPlayersForTeam(0, 1, totalPlayers);
@@ -44,8 +42,11 @@ htmx.on('htmx:load', (event) => {
                     const playerDiv = createPlayerElement(player);
                     playersDiv.appendChild(playerDiv);
                 });
+                const playerDiv = createPlayerElement(playerData);
+                playersDiv.appendChild(playerDiv);
                 teamContainer.appendChild(playersDiv);
             } else {
+                teamContainer.classList.remove('noTeams');
                 for (let i = 0; i < teamsCount; i++) {
                     const teamName = `Team ${String.fromCharCode(65 + i)}`; // Team A, B, C, ...
                     const players = getPlayersForTeam(i, teamsCount, totalPlayers); // Bots for Teams

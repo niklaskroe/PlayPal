@@ -1,7 +1,15 @@
 import { isGame, setPlayer, setSelectedGame } from "./sharedData.js";
-htmx.on("htmx:load", (event) => { //htmx Listener
-    //Variables
+htmx.on("htmx:load", (event) => {
     const button = document.getElementById('startButton');
+    
+    if (!button) {
+        return;
+    }
+
+    console.log("entry.js htmx:load event");
+    
+    //htmx Listener
+    //Variables
     const nameInput = document.getElementById('nameInput');
     const pinInput = document.getElementById('pinInput');
 

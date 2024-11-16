@@ -3,12 +3,20 @@ import { getPlayer, buildAvatar, setPlayer } from "./sharedData.js";
 let isRefresh = true;
 
 htmx.on('htmx:load', () => {
+
+    const avatarPlayer = document.getElementById('avatarPlayer');
+
+    if (!avatarPlayer) {
+        return;
+    }
+
     loadAvatar();
 
     // only load on refresh
     if (isRefresh) {
         loadContent('charactersTab');
     }
+    console.log('avatar.js htmx:load event');
 
     loadEventListeners();
 });

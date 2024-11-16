@@ -41,7 +41,7 @@ function loadEventListeners() {
 }
 
 function loadContent(selectedTabId) {
-    isRefresh = false;
+    isRefresh = false; // reset refresh flag
 
     if (selectedTabId === 'charactersTab') {
         htmx.ajax('GET', '/pages/avatar/characters.html', {

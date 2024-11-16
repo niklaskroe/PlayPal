@@ -11,10 +11,4 @@ document.addEventListener("DOMContentLoaded", function() {
     mainContent.setAttribute("hx-target", "#mainContent"); // Ensure the target is set
 
     htmx.process(mainContent);
-
-    test();
 });
-
-function test() {
-    console.log("DOM fully loaded and parsed");
-}

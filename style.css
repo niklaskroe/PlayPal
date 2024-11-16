@@ -286,7 +286,8 @@ main {
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
-    margin: auto;
+    margin: 3em auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .gamePinH2 {
@@ -310,7 +311,8 @@ main {
     /* scrollable */
     max-height: 80vh;
     overflow-y: auto;
-
+}
+.teamSelection:not(.noTeams) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1em;
@@ -377,9 +379,61 @@ main {
     color: white;
     cursor: pointer;
 }
-/*
-Sizing for Smartphones and small Tablets
-*/
+
+.teamButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+/* No Teams Players */
+.teamSelection.noTeams {
+    display: flex;
+    width: 100%;
+}
+
+.teamSelection.noTeams .teamPlayers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    padding: 1em;
+    width: 100%;
+    flex-direction: row;
+}
+
+.teamSelection.noTeams .teamPlayer {
+    flex: 0 0 calc(20% - 1.5em);
+    min-width: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teamSelection.noTeams .teamAvatar {
+    width: 3.5em;
+    height: 3.5em;
+    margin-bottom: 0.5em;
+}
+
+.teamSelection.noTeams .teamPlayerName {
+    margin-left: 0;
+    font-size: 1em;
+    word-break: break-word;
+}
+
+/* responsive design */
+
+@media (max-width: 1200px) {
+    .teamSelection.noTeams .teamPlayer {
+        flex: 0 0 calc(25% - 1.5em);
+    }
+}
+
+@media (max-width: 992px) {
+    .teamSelection.noTeams .teamPlayer {
+        flex: 0 0 calc(33.333% - 1.5em);
+    }
+}
+
 @media (max-width: 768px) {
     .teamContainer {
         padding: 1em;
@@ -387,7 +441,7 @@ Sizing for Smartphones and small Tablets
         width: calc(100% - 2em);
     }
 
-    .teamSelection {
+    .teamSelection:not(.noTeams) {
         grid-template-columns: 1fr;
     }
 
@@ -407,5 +461,15 @@ Sizing for Smartphones and small Tablets
     .teamButton {
         font-size: 1.1em;
         padding: 0.8em;
+    }
+
+    .teamSelection.noTeams .teamPlayer {
+        flex: 0 0 calc(33.333% - 1.5em);
+    }
+}
+
+@media (max-width: 576px) {
+    .teamSelection.noTeams .teamPlayer {
+        flex: 0 0 calc(50% - 1.5em);
     }
 }

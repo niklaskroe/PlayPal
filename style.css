@@ -15,7 +15,6 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
 }
 
 header {
@@ -187,7 +186,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     padding: 0;
     margin: 0;
 }
@@ -275,18 +274,29 @@ main {
     border-radius: 1em;
 }
 
-@media (max-width: 1200px) {}
+@media (max-width: 1200px) {
+    
+}
 
-@media (max-width: 992px) {}
+@media (max-width: 992px) {
+    .avatarContainer {
+        padding: 1em;
+        margin: 1em;
+        min-width: calc(100% - 4em);
+    }
 
-@media (max-width: 768px) {}
-
-@media (max-width: 480px) {
     footer {
         display: none;
     }
 }
 
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 480px) {
+    
+}
 /* Team */
 
 .teamBody {

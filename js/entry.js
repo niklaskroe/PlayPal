@@ -80,6 +80,7 @@ htmx.on("htmx:load", (event) => {
     document.getElementById('pinInput').addEventListener('input', (event) => {
         const pinInput = event.target;
         if (pinInput.value.length < 6) {
+            button.textContent = "Join";
             pinInput.classList.remove('inputTrue');
             pinInput.classList.add('inputFalse');
             conditionPin = false;
@@ -87,11 +88,17 @@ htmx.on("htmx:load", (event) => {
         } else {
             pinInput.classList.remove('inputFalse');
             pinInput.classList.add('inputTrue');
-            conditionPin = true;
-            code = pinInput.value;                      //sets code
+            //code = pinInput.value;                      //sets code
+            if (isGame(parseInt(pinInput.value))) {                  //checks if Pin has a Game
+                setSelectedGame(parseInt(pinInput.value));           //sets Game
+                conditionPin = true;
+            } else {
+                    button.textContent = "Game not found";
+            }
             updateButton();
         }
         if (pinInput.value.length == 0) {
+            button.textContent = "Join";
             pinInput.classList.remove('inputFalse');
             pinInput.classList.remove('inputTrue');
             conditionPin = false;
@@ -101,16 +108,15 @@ htmx.on("htmx:load", (event) => {
 
     //Event-Listener for Button-Click
     button.addEventListener('click', function () {
-        let pin = parseInt(code);
-        if (isGame(pin)) {                  //checks if Pin has a Game
-            setSelectedGame(pin);           //sets Game
+        //let pin = parseInt(code);
+        //
             htmx.ajax('GET', '/pages/avatar/avatar.html', {
                 target: '#mainContent',
                 swap: 'innerHTML',
             });
-        } else {
+        /*} else {
             alert("Not found"); //Alert if game is not found
-        }
+        }*/
     });
     
 })

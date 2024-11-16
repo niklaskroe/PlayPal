@@ -289,11 +289,6 @@ main {
     align-items: center;
     min-height: 100vh;
     padding: 1em;
-    background: linear-gradient(180deg, rgba(241,193,72,1) 0%, rgba(229,132,61,1) 50%, rgba(217,70,122,1) 100%);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 .teamContainer {
@@ -486,17 +481,6 @@ main {
 }
 
 @media (max-width: 480px) {
-
-    .teamBody {
-        overflow: hidden;
-    }
-
-
-    .teamContainer {
-        height: 100vh;
-        overflow: hidden;
-    }
-
     .teamSelection.noTeams .teamPlayer {
         flex: 0 0 calc(50% - 1.5em);
     }

@@ -1,23 +1,26 @@
 import { getPlayer, getBots, getGames, buildAvatar, getSelectedGame } from '/js/sharedData.js';
 htmx.on('htmx:load', (event) => {
+    // hide continue button
+    hideContinueButton();
+
     //Current Team
     let playerTeam = null;
-//Data from sharedData.js
+    //Data from sharedData.js
     const playerData = getPlayer();
     const gamesData = getGames();
 
-//Global Index
+    //Global Index
     let globalPlayerIndex = 0;
 
-//Game-Pin
+    //Game-Pin
     const gamePinDisplay = document.getElementById('gamePinDisplay');
-//Get PIN of selectedGame Object
+    //Get PIN of selectedGame Object
     let pin = getSelectedGame() || '222222';
     gamePinDisplay.textContent = pin;
 
     loadTeams(pin);
 
-// Load Teams based on PIN
+    // Load Teams based on PIN
     function loadTeams(pin) {
         console.log("Loading teams for pin:", pin);
         const selectedGame = Object.values(gamesData).find(game => game.pin == pin);
@@ -30,7 +33,7 @@ htmx.on('htmx:load', (event) => {
             // Empty Team-Container
             teamContainer.innerHTML = '';
 
-            if (teamsCount === 0){
+            if (teamsCount === 0) {
                 //no Teams
                 teamContainer.classList.add('noTeams')
                 const playersDiv = document.createElement('div');
@@ -38,7 +41,7 @@ htmx.on('htmx:load', (event) => {
 
                 //get players in case of no Teams
                 const players = getPlayersForTeam(0, 1, totalPlayers);
-                players.forEach((player) =>{
+                players.forEach((player) => {
                     const playerDiv = createPlayerElement(player);
                     playersDiv.appendChild(playerDiv);
                 });
@@ -118,7 +121,7 @@ htmx.on('htmx:load', (event) => {
         return playerDiv;
     }
 
-//Team-Entry
+    //Team-Entry
     function joinTeam(teamElement, playerData) {
         if (playerTeam) {
             const prevButton = playerTeam.querySelector('.teamButton');
@@ -188,4 +191,11 @@ htmx.on('htmx:load', (event) => {
         console.log(`bot-players ${teamIndex}`, players)
         return players;
     }
-})
+
+    function hideContinueButton() {
+        const continueButton = document.querySelector('.continueButton');
+        if (continueButton) {
+            continueButton.classList.add('hidden');
+        }
+    }
+});

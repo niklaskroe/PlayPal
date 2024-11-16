@@ -15,6 +15,7 @@ htmx.on('htmx:load', () => {
 
 function loadAvatar() {
     buildAvatar(getPlayer(), 'avatarPlayer');
+    showContinueButton();
 }
 
 function loadEventListeners() {
@@ -53,6 +54,20 @@ function loadContent(selectedTabId) {
             target: '#avatarContent',
             swap: 'innerHTML'
         });
+    }
+}
+
+function showContinueButton() {
+    const continueButton = document.querySelector('.continueButton');
+    if (continueButton) {
+        continueButton.classList.remove('hidden');
+    }
+}
+
+function hideContinueButton() {
+    const continueButton = document.querySelector('.continueButton');
+    if (continueButton) {
+        continueButton.classList.add('hidden');
     }
 }
 

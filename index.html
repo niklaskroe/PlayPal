@@ -11,11 +11,19 @@
 </head>
 <body>
     <header>
-        <a href="index.html">
-            <img src="/assets/logo.png" alt="PlayPal Logo" class="logo_icon">
-        </a>
-        
-        <h1 class="title">PlayPal</h1>
+        <div class="header-left">
+            <a href="index.html">
+                <img src="/assets/logo.png" alt="PlayPal Logo" class="logo_icon">
+            </a>
+
+            <h1 class="title">PlayPal</h1>
+        </div>
+
+        <div class="header-right">
+            <button class="continueButton hidden" hx-get="/pages/team/team.html" hx-target="#mainContent" hx-swap="innerHTML">
+                Continue
+            </button>
+        </div>
     </header>
 
     <main id="mainContent"></main>

@@ -2,7 +2,7 @@
 
 html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(180deg, rgba(241,193,72,1) 0%, rgba(229,132,61,1) 50%, rgba(217,70,122,1) 100%);
+    background: linear-gradient(180deg, rgba(241, 193, 72, 1) 0%, rgba(229, 132, 61, 1) 50%, rgba(217, 70, 122, 1) 100%);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -10,7 +10,8 @@ html {
     height: 100%;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     padding: 0;
     margin: 0;
@@ -24,6 +25,19 @@ header {
     padding: 0;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 1rem;
+}
+
 .logo_icon {
     width: 5em;
     height: 5em;
@@ -33,6 +47,20 @@ header {
     margin: 0;
     font-size: 2em;
     padding-right: 1rem;
+}
+
+.continueButton {
+    margin: 1em;
+    padding: 0.5em;
+    font-size: 100%;
+    background-color: rgba(217, 70, 122, 1);
+    color: white;
+    border: 1px solid rgba(217, 70, 122, 1);
+    border-radius: 10px;
+}
+
+.continueButton.hidden {
+    display: none;
 }
 
 footer {
@@ -51,8 +79,9 @@ footer {
 .support {
     margin: 0;
     padding: 0;
-    
-    a, a:visited {
+
+    a,
+    a:visited {
         text-decoration: none;
         color: black;
     }
@@ -70,11 +99,6 @@ main {
 }
 
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .title {
         display: none;
     }
@@ -104,7 +128,7 @@ main {
 .entryItems {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    width:17em;
+    width: 17em;
     margin-top: 0.5em;
     font-weight: bold;
     font-size: 14pt;
@@ -114,17 +138,17 @@ main {
     box-shadow: inset 0 0 5px lightgray;
 }
 
-.entryItems.inputFalse{
+.entryItems.inputFalse {
     border: solid red;
-    color:red;
+    color: red;
 }
 
-.entryItems.inputTrue{
-    border:solid green;
+.entryItems.inputTrue {
+    border: solid green;
     color: green;
 }
 
-.entryButton{
+.entryButton {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     font-size: 14pt;
@@ -135,22 +159,24 @@ main {
     box-shadow: none;
 
 }
-.entryButton.disabled{
-    border: solid rgba(217,70,122,1); 
-    background-color: white; 
-    color: rgba(217,70,122,1);
+
+.entryButton.disabled {
+    border: solid rgba(217, 70, 122, 1);
+    background-color: white;
+    color: rgba(217, 70, 122, 1);
     cursor: not-allowed;
     pointer-events: none;
 }
-.entryButton.enabled{
+
+.entryButton.enabled {
     border: none;
-    background-color: rgba(217,70,122,1);
+    background-color: rgba(217, 70, 122, 1);
     color: white;
 }
 
 
 .entryButton:hover {
-    box-shadow: 0 0 5px rgba(217,70,122,1);  
+    box-shadow: 0 0 5px rgba(217, 70, 122, 1);
     font-weight: bold;
 }
 
@@ -166,21 +192,6 @@ main {
     margin: 0;
 }
 
-.continueButton {
-    display: flex;
-    justify-content: right;
-
-    Button {
-        margin: 1em;
-        padding: 0.5em;
-        font-size: 100%;
-        background-color: rgba(217,70,122,1);
-        color: white;
-        border: 1px solid rgba(217,70,122,1);
-        border-radius: 10px;
-    }
-}
-
 .avatarPlayer {
     width: 10em;
     height: 10em;
@@ -188,7 +199,7 @@ main {
     position: relative;
     overflow: hidden;
 
-    margin: 2em auto auto;
+    margin: auto;
 }
 
 .avatarSvg {
@@ -214,7 +225,7 @@ main {
     align-items: center;
     background-color: white;
     padding: 1em;
-    margin: 2em auto;
+    margin: auto;
     border-radius: 1em;
     max-width: 50vw;
     width: 100%;
@@ -231,11 +242,11 @@ main {
 }
 
 .avatarTab:hover {
-    box-shadow: 0px 15px 10px -15px rgba(217,70,122,1);
+    box-shadow: 0px 15px 10px -15px rgba(217, 70, 122, 1);
 }
 
 .avatarTab.selected {
-    border-bottom: 4px solid rgba(217,70,122,1);
+    border-bottom: 4px solid rgba(217, 70, 122, 1);
 }
 
 .selectionContainer {
@@ -264,20 +275,14 @@ main {
     border-radius: 1em;
 }
 
-@media (max-width: 1200px) {
-    
-}
+@media (max-width: 1200px) {}
 
-@media (max-width: 992px) {
-    
-}
+@media (max-width: 992px) {}
 
-@media (max-width: 768px) {
-    
-}
+@media (max-width: 768px) {}
 
 @media (max-width: 480px) {
-    footer{
+    footer {
         display: none;
     }
 }
@@ -290,7 +295,7 @@ main {
     align-items: center;
     min-height: 100vh;
     padding: 1em;
-    background: linear-gradient(180deg, rgba(241,193,72,1) 0%, rgba(229,132,61,1) 50%, rgba(217,70,122,1) 100%);
+    background: linear-gradient(180deg, rgba(241, 193, 72, 1) 0%, rgba(229, 132, 61, 1) 50%, rgba(217, 70, 122, 1) 100%);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -331,6 +336,7 @@ main {
     max-height: 80vh;
     overflow-y: auto;
 }
+
 .teamSelection:not(.noTeams) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -366,14 +372,14 @@ main {
 }
 
 .teamPlayerNameUser,
-.teamPlayerName{
+.teamPlayerName {
     margin-left: 0.8em;
     font-size: 1.1em;
 }
 
 .teamPlayerNameUser {
     padding: 0.4em;
-    border: solid rgba(217,70,122,1);
+    border: solid rgba(217, 70, 122, 1);
 }
 
 .teamAvatar {
@@ -394,18 +400,19 @@ main {
     box-sizing: border-box;
     border-radius: 1em;
     border: none;
-    background-color: rgba(217,70,122,1);
+    background-color: rgba(217, 70, 122, 1);
     color: white;
     cursor: pointer;
 }
 
 .teamButton:disabled {
     background-color: white;
-    color: rgba(217,70,122,1);
-    border: solid rgba(217,70,122,1);
+    color: rgba(217, 70, 122, 1);
+    border: solid rgba(217, 70, 122, 1);
     cursor: not-allowed;
     pointer-events: none;
 }
+
 /* No Teams Players */
 .teamSelection.noTeams {
     display: flex;
@@ -494,6 +501,7 @@ main {
     .teamSelection.noTeams .teamPlayer {
         flex: 0 0 calc(50% - 1.5em);
     }
+
     .teamSelection {
         max-height: 63vh;
     }

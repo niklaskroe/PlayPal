@@ -10,4 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
         target: "#mainContent",
         swap: "innerHTML"
     });
+
+    test();
 });
+
+function test() {
+    console.log("test");
+}

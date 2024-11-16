@@ -6,9 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
     }
 
-    mainContent.setAttribute("hx-get", "/pages/entry.html");
-    mainContent.setAttribute("hx-trigger", "load");
-    mainContent.setAttribute("hx-target", "#mainContent"); // Ensure the target is set
+    htmx.ajax("GET", "/pages/entry.html", {
+        target: "#mainContent",
+        swap: "innerHTML"
+    });
 
-    htmx.process(mainContent);
+    test();
 });
+
+function test() {
+    console.log("test");
+}

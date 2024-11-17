@@ -66,7 +66,7 @@ htmx.on('htmx:load', () => {
                 teamContainer.appendChild(teamDiv);
             }
         } else {
-            //No Game with this PIN
+            console.error('Game not found');
         }
     }
 

@@ -17,13 +17,11 @@ htmx.on('htmx:load', () => {
     //Get PIN of selectedGame Object
     let pin = getSelectedGame() || '222222';
     gamePinDisplay.textContent = pin;
-    console.log('PIN:',getSelectedGame());
 
     loadTeams(pin);
 
     // Load Teams based on PIN
     function loadTeams(pin) {
-        console.log("Loading teams for pin:", pin);
         const selectedGame = Object.values(gamesData).find(game => game.pin == pin);
 
         if (selectedGame) {
@@ -68,7 +66,7 @@ htmx.on('htmx:load', () => {
                 teamContainer.appendChild(teamDiv);
             }
         } else {
-            console.log('Kein Spiel mit dieser PIN gefunden.');
+            //No Game with this PIN
         }
     }
 
@@ -80,8 +78,6 @@ htmx.on('htmx:load', () => {
         const botAvatarContainer = document.createElement('div');
         botAvatarContainer.id = `avatar-${globalPlayerIndex}`;
         botAvatarContainer.classList.add('teamAvatar');
-
-        console.log(`Building Bot Avatar for: ${player.name} with ID: ${botAvatarContainer.id}`);
 
         let characterId = player.character;
         let accessoryId = player.accessory;
@@ -151,7 +147,6 @@ htmx.on('htmx:load', () => {
                 });
             }
         }
-        console.log(`bot-players ${teamIndex}`, players)
         return players;
     }
 

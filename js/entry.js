@@ -1,12 +1,11 @@
 import { isGame, setPlayer, setSelectedGame } from "./sharedData.js";
-htmx.on("htmx:load", (event) => {
+htmx.on("htmx:load", () => {
+    // prevent script from running when not on the entry page
     const button = document.getElementById('startButton');
 
     if (!button) {
         return;
     }
-
-    console.log("entry.js htmx:load event");
 
     //Variables
     const nameInput = document.getElementById('nameInput');

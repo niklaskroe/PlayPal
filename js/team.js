@@ -1,7 +1,14 @@
-import { getPlayer, getBots, getGames, buildAvatar, getSelectedGame } from '/js/sharedData.js';
-htmx.on('htmx:load', (event) => {
+import { getPlayer, getBots, getGames, getSelectedGame } from '/js/sharedData.js';
+htmx.on('htmx:load', () => {
     // hide continue button
     hideContinueButton();
+
+    // prevent script from running when not on the team page
+    const body = document.getElementById('teamBody');
+
+    if (!body) {
+        return;
+    }
 
     //Current Team
     let playerTeam = null;

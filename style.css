@@ -96,12 +96,6 @@ main {
     flex: 1;
 }
 
-@media (max-width: 768px) {
-    .title {
-        display: none;
-    }
-}
-
 /* Join a Game */
 
 .entryBody {
@@ -273,29 +267,6 @@ main {
     border-radius: 1em;
 }
 
-@media (max-width: 1200px) {
-    
-}
-
-@media (max-width: 992px) {
-    .avatarContainer {
-        padding: 1em;
-        margin: 1em;
-        min-width: calc(100% - 4em);
-    }
-
-    footer {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    
-}
-
-@media (max-width: 480px) {
-    
-}
 /* Team */
 
 .teamBody {
@@ -411,13 +382,35 @@ main {
     pointer-events: none;
 }
 
-/* responsive design */
+/* media queries */
 
-@media (max-width: 1200px) {
+/* landscape mode */
+@media (max-width: 992px) and (orientation: landscape) {
+    .teamContainer {
+        height: calc(100vh - 40px);
+        margin: 0.5em auto;
+    }
 
+    .gamePinH2 {
+        margin: 0.25em 0;
+    }
+
+    footer {
+        display: none;
+    }
 }
 
 @media (max-width: 992px) {
+    .avatarContainer {
+        padding: 1em;
+        margin: 1em;
+        min-width: calc(100% - 4em);
+    }
+
+    footer {
+        display: none;
+    }
+
     .teamContainer {
         height: 65%;
         max-height: 80vh;
@@ -426,6 +419,10 @@ main {
 }
 
 @media (max-width: 768px) {
+    .title {
+        display: none;
+    }
+
     .teamBody {
         padding: 0;
     }
@@ -444,21 +441,5 @@ main {
         max-height: 80vh;
         margin: 1em auto;
 
-    }
-}
-
-/* landscape mode */
-@media (max-width: 992px) and (orientation: landscape) {
-    .teamContainer {
-        height: calc(100vh - 40px);
-        margin: 0.5em auto;
-    }
-
-    .gamePinH2 {
-        margin: 0.25em 0;
-    }
-
-    footer {
-        display: none;
     }
 }

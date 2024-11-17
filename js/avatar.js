@@ -3,24 +3,26 @@ import { getPlayer, buildAvatar, setPlayer } from "./sharedData.js";
 let isRefresh = true;
 
 htmx.on('htmx:load', () => {
-
+    // prevent script from running when not on the avatar page
     const avatarPlayer = document.getElementById('avatarPlayer');
 
     if (!avatarPlayer) {
         return;
     }
-
+    
+    // load player avatar
     loadAvatar();
 
-    // only load on refresh
+    // initial character load on refresh
     if (isRefresh) {
         loadContent('charactersTab');
     }
-    console.log('avatar.js htmx:load event');
 
+    // load event listeners
     loadEventListeners();
 });
 
+// load player avatar & show continue button
 function loadAvatar() {
     buildAvatar(getPlayer(), 'avatarPlayer');
     showContinueButton();
@@ -49,6 +51,7 @@ function loadEventListeners() {
     });
 }
 
+// load content based on selected tab
 function loadContent(selectedTabId) {
     isRefresh = false; // reset refresh flag
 
@@ -65,17 +68,11 @@ function loadContent(selectedTabId) {
     }
 }
 
+// show continue button
 function showContinueButton() {
     const continueButton = document.querySelector('.continueButton');
     if (continueButton) {
         continueButton.classList.remove('hidden');
-    }
-}
-
-function hideContinueButton() {
-    const continueButton = document.querySelector('.continueButton');
-    if (continueButton) {
-        continueButton.classList.add('hidden');
     }
 }
 
@@ -93,6 +90,7 @@ function selectTab(selectedTabId) {
 
 // updating avatar data
 function updateAvatar(selectedItem) {
+    // get current player data
     let player = getPlayer();
 
     if (selectedItem.startsWith('character')) {
@@ -101,6 +99,7 @@ function updateAvatar(selectedItem) {
     if (selectedItem.startsWith('accessory')) {
        player.accessory = selectedItem.replace('accessory', '');
     }
-
+    	
+    // save in sessionStorage
     setPlayer(player);
 }

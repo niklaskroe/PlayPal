@@ -46,6 +46,8 @@ Möglichkeit als Spieler einem Team beizutreten oder durch das Spiel automatisch
   <img src="design/ui/team.jpg" alt="entry example" width="250"/>
 </div>
 
+Desktop & Mobile prinzipiell gleich: leere Zwischenräume (Hintergrund) fällt kleiner aus / Hauptcontainer nehmen den vollen Raum ein.
+
 ## UI-Pattern und Gesaltungsregeln
 
 P = Pattern G = Gestaltungsregel

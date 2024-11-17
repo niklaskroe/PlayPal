@@ -148,7 +148,7 @@ const games = {
     },
     game4: {
       pin: 444444,
-      playerCount: 23,
+      playerCount: 14,
       teams: 3,
     },
     game5: {

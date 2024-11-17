@@ -3,13 +3,6 @@ htmx.on('htmx:load', () => {
     // hide continue button
     hideContinueButton();
 
-    // prevent script from running when not on the team page
-    const body = document.getElementById('teamBody');
-
-    if (!body) {
-        return;
-    }
-
     //Current Team
     let playerTeam = null;
     //Data from sharedData.js
@@ -64,7 +57,7 @@ htmx.on('htmx:load', () => {
 
                 const teamButton = document.createElement('button');
                 teamButton.classList.add('teamButton');
-                teamButton.textContent = 'Beitreten';
+                teamButton.textContent = 'Join';
                 teamButton.addEventListener('click', () => joinTeam(teamDiv, playerData));
                 teamButtonContainer.appendChild(teamButton)
 

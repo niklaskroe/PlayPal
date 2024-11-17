@@ -17,6 +17,7 @@ htmx.on('htmx:load', () => {
     //Get PIN of selectedGame Object
     let pin = getSelectedGame() || '222222';
     gamePinDisplay.textContent = pin;
+    console.log('PIN:',getSelectedGame());
 
     loadTeams(pin);
 
@@ -135,10 +136,13 @@ htmx.on('htmx:load', () => {
 
         //Players per team
         const playersPerTeam = Math.floor(totalPlayers / totalTeams);
-        const startIndex = teamIndex * playersPerTeam;
+        //Remaining Players
+        const remainingPlayers = totalPlayers % totalTeams;
+        const startIndex = teamIndex * playersPerTeam + Math.min(teamIndex, remainingPlayers);
+        const endIndex = startIndex + playersPerTeam + (teamIndex < remainingPlayers ? 1 : 0);
 
         //add Players to teams (bots)
-        for (let i = startIndex; i < startIndex + playersPerTeam; i++) {
+        for (let i = startIndex; i < endIndex; i++) {
             if (playerValues[i]) {
                 players.push({
                     name: playerValues[i].name,

@@ -11,12 +11,12 @@ const bots = {
         accessory: 2
     },
     player3: {
-        name: "Reus",
+        name: "Marco Reus",
         character: 3,
         accessory: 3
     },
     player4: {
-        name: "Justin",
+        name: "Justin Time",
         character: 4,
         accessory: 4
     },
@@ -31,37 +31,37 @@ const bots = {
         accessory: 6
     },
     player7: {
-        name: "Frankenstein",
+        name: "Frank",
         character: 7,
         accessory: 7
     },
     player8: {
-        name: "Tanzverbot",
+        name: "Olaf",
         character: 8,
         accessory: 8
     },
     player9: {
-        name: "Milch ist Gift",
+        name: "Peter",
         character: 9,
         accessory: 9
     },
     player10: {
-        name: "Orangensaft",
+        name: "Klaus",
         character: 0,
         accessory: 0
     },
     player11: {
-        name: "Käsekuchen",
+        name: "Chris",
         character: 1,
         accessory: 1
     },
     player12: {
-        name: "KahootSpion",
+        name: "Mert",
         character: 2,
         accessory: 2
     },
     player13: {
-        name: "OkBro",
+        name: "Sep",
         character: 3,
         accessory: 3
     },
@@ -71,7 +71,7 @@ const bots = {
         accessory: 4
     },
     player15: {
-        name: "Darth Vader",
+        name: "San Holo",
         character: 5,
         accessory: 5
     },
@@ -81,42 +81,42 @@ const bots = {
         accessory: 6
     },
     player17: {
-        name: "Zweite Person",
+        name: "Sergej Fährlich",
         character: 7,
         accessory: 7
     },
     player18: {
-        name: "Eine Person",
+        name: "Paul Lahner",
         character: 8,
         accessory: 8
     },
     player19: {
-        name: "MoneyBoy",
+        name: "Klara Vorteil",
         character: 9,
         accessory: 9
     },
     player20: {
-        name: "Wer",
+        name: "Heinz Fiction",
         character: 0,
         accessory: 0
     },
     player21: {
-        name: "Die3???",
+        name: "Rainer Verlust",
         character: 1,
         accessory: 1
     },
     player22: {
-        name: "Santa Claus",
+        name: "Ken Tucky",
         character: 2,
         accessory: 2
     },
     player23: {
-        name: "Buggs Bunny",
+        name: "Andi Arbeit",
         character: 3,
         accessory: 3
     },
     player24: {
-        name: "Nase",
+        name: "Obama",
         character: 4,
         accessory: 4
     }

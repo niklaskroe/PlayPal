@@ -288,7 +288,6 @@ main {
     margin: 2em auto;
     padding: 1em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: auto;
 }
 
 .gamePinH2 {
@@ -355,7 +354,6 @@ main {
     width: 3.5em;
     height: 3.5em;
     position: relative;
-    overflow: hidden;
 }
 
 .teamButtonContainer {
@@ -407,6 +405,10 @@ main {
         min-width: calc(100% - 4em);
     }
 
+    .teamSelection {
+        max-height: 70vh;
+    }
+
     footer {
         display: none;
     }
@@ -434,6 +436,8 @@ main {
     .teamContainer {
         max-height: 80vh;
         margin: 1em auto;
-
+    }
+    .teamSelection {
+        max-height: 70vh;
     }
 }

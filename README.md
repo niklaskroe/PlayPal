@@ -41,9 +41,9 @@ Möglichkeit als Spieler einem Team beizutreten oder durch das Spiel automatisch
 ## Design - Scribbles
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="design/entry.jpg" alt="entry example" width="250"/>
-  <img src="design/avatar.jpg" alt="entry example" width="250"/>
-  <img src="design/team.jpg" alt="entry example" width="250"/>
+  <img src="design/ui/entry.jpg" alt="entry example" width="250"/>
+  <img src="design/ui/avatar.jpg" alt="entry example" width="250"/>
+  <img src="design/ui/team.jpg" alt="entry example" width="250"/>
 </div>
 
 ## UI-Pattern und Gesaltungsregeln
@@ -89,7 +89,7 @@ P = Pattern G = Gestaltungsregel
 
 ### 5. Responsive Gestaltung
 
-- (P) Sowohl bei kahoot als auch bei quizizz werden große Texte und Buttons verwendet, was es auf verschiedenen Geräten leichter erkennbar macht. Diese Elemente sind nicht statisch sondern passen sich der Bildschirmauflösung an:
+- (P) Sowohl bei Kahoot als auch bei quizizz werden große Texte und Buttons verwendet, was es auf verschiedenen Geräten leichter erkennbar macht. Diese Elemente sind nicht statisch sondern passen sich der Bildschirmauflösung an:
 
 <div style="display: flex; justify-content: space-between;">
   <img src="examples/kahoot/kahoot_avatar.png" alt="kahoot avatar desktop" height="300"/>
@@ -100,4 +100,8 @@ P = Pattern G = Gestaltungsregel
 
 ## Technische Architektur
 
-<img src="" alt="architecture" width="400"/>
+Basis der Architektur bildet die folgende Modellierung des Front-Ends:
+
+<img src="design/architecture/architecture.png" alt="architecture" height="500" style="margin: 1em 0 2em;"/>
+
+Die Webseite wird als Single-Page-Application mittels HTMX aufgebaut. Basis bildet die Index-Seite als "Hauptcontainer". Dieser beinhaltet entsprechenden Boilerplate Code, der auf allen Seiten angezeigt wird bzw. Skripte zentral ausführt. Darin werden mittels HTMX die einzelnen Seiten in den "main"-Teil. Jede Seite hat ihren eigenen Javascript Code, um die spezifischen Dinge zu steuern. Der zentrale Skript "index.js" kümmert sich nur darum, dass die Entry-Page mit ihrem Skript zuerst geladen wird, wenn man die Seite betritt. Davon ausgehend hat jede Seite (bis auf die Teamauswahl) eine Weiterleitung zur nächsten Seite via HTMX. Der Sessionstorage und die zugehörige Javascript-Datei werden zur zentralen Speicherung von relevanten Daten genutzt. Dadurch besteht eine Datenpersistenz zwischen den Einzelseiten. Die benötigten Daten, wie etwa der eingegebene Spielepin oder der Avatar des Hauptspielers, könnten auch direkt an die Team-Page übergeben werden. Im Zuge der Datensicherheit und -korrektheit für ein "Single Source of Truth"-Prinzip (SSOT) entschieden, sodass die Daten aus dem Sessionstorage immer die richtigen und korrekten Daten sind. Somit können potenzielle Konflikte vermieden werden. Der sharedStorage-Skript bietet die notwendigen Schnittstellen in Form von Getter und Setter für die einzelnen Seiten. So dient dieser rein die Datenverwaltung, die konkrete Modifikation, also *wie* die Datenwerte aussehen, findet in den jeweiligen Skripten der einzelnen Seiten statt. Insgesamt kümmert sich jede Seite um seine eigene Logik und der sharedStorage um die Verwaltung der Daten.

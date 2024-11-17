@@ -98,16 +98,14 @@ htmx.on("htmx:load", () => {
         } else {
             pinInput.classList.remove('inputFalse');
             pinInput.classList.add('inputTrue');
-
-            if (isGame(parseInt(pinInput.value))) {                  //checks if Pin has a Game
-                setSelectedGame(parseInt(pinInput.value));          //sets Game
-                
+            // sets code
+            code = pinInput.value;
+            if (isGame(parseInt(pinInput.value))) {  //checks if Pin has a Game
                 conditionPin = true;
             } else {
                 button.textContent = "Game not found";
                 button.textContent = "Game not found";
             }
-            
             updateButton();
         }
         if (pinInput.value.length == 0) {

@@ -284,10 +284,11 @@ main {
     border-radius: 1em;
     width: 90%;
     max-width: 1200px;
-    max-height: 90%;
+    max-height: 95%;
     margin: 2em auto;
     padding: 1em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
 }
 
 .gamePinH2 {
@@ -313,6 +314,7 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1em;
+    flex-grow: 1;
 }
 
 /* Teams Layout */
@@ -405,10 +407,6 @@ main {
         min-width: calc(100% - 4em);
     }
 
-    .teamSelection {
-        max-height: 70vh;
-    }
-
     footer {
         display: none;
     }
@@ -434,10 +432,6 @@ main {
 
 @media (max-width: 480px) {
     .teamContainer {
-        max-height: 80vh;
         margin: 1em auto;
-    }
-    .teamSelection {
-        max-height: 70vh;
     }
 }
